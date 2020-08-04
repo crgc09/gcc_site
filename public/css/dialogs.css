@@ -1,0 +1,109 @@
+/*LABORAL*/
+  .cont_dia{
+    display: grid;
+    grid-gap: 15px;
+    grid-template: 1fr/repeat(2, 1fr);
+    grid-template-areas: "info_dia img_dia";
+    justify-items: center;
+    align-items: center;
+  }
+  .info_dia{
+    grid-area: info_dia;
+  }
+  .img_dia{
+    grid-area: img_dia;
+  }
+  .info_dia .row{
+    margin-right: 0;
+    margin-left: 0;
+  } 
+/*FREELANCE*/
+  .contf_dia{
+    display: grid;
+    grid-gap: 15px;
+    grid-template: 1fr/repeat(2, 1fr);
+    grid-template-areas: "infofp_dia infofs_dia";
+    /*justify-items: center;*/
+    align-items: center;
+  }
+  .infofp_dia{
+    grid-area: infofp_dia;
+  }
+  .infofs_dia{
+    grid-area: infofs_dia;
+  }
+  .infofp_dia .row,
+  .infofs_dia .row{
+    margin-right: 0;
+    margin-left: 0;
+  }
+/*UNIVERSIDAD*/
+  .contu_dia{
+    display: grid;
+    grid-gap: 15px;
+    grid-template: 1fr/repeat(2, 1fr);
+    grid-template-areas: "infoup_dia infous_dia";
+    /*justify-items: center;*/
+    align-items: center;
+  }
+  .infoup_dia{
+    grid-area: infoup_dia;
+  }
+  .infous_dia{
+    grid-area: infous_dia;
+  }
+  .infoup_dia .row,
+  .infous_dia .row{
+    margin-right: 0;
+    margin-left: 0;
+  }
+/**/
+.ip_dia{
+  width: 100%;
+}
+
+.lista_dia{
+  color: #eeb213;
+  font-weight: bold;
+}
+
+.title_dia{
+  color: #eeb213;
+  font-size: 28px;
+}
+.subtitle_dia{
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 2rem;
+  letter-spacing: 0.0125em;
+}
+
+#link_dia{
+  color: #fff;
+}
+
+.cinfo{
+  color: #fff;
+  font-size: 15px;
+  text-align: justify;
+}
+
+/**/
+@media screen and (max-width: 768px) {
+  .cont_dia{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: "info_dia" "img_dia";
+  }
+  .contf_dia{
+    display: grid;
+   grid-template-columns:1fr;
+    grid-template-areas: "infofp_dia" "infofs_dia";
+  }
+  .contu_dia{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: "infoup_dia" "infous_dia";
+  }
+
+}

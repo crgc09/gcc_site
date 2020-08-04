@@ -1,0 +1,213 @@
+#vct-padding{
+  padding: 4px 16px 16px 16px;
+}
+
+.card_title{
+  margin: 0px;
+  color: #eeb213;
+  text-shadow: 0px 0px 2px #eeb213;
+  /*color: #fff;
+  text-shadow: 0px 0px 2px #fff;*/
+  font-weight: 500;
+  position: relative;
+  top: 4px;
+}
+
+#card{
+  background: rgba(46, 49, 49, 0.7);
+}
+
+#card_avatar{
+  margin-left: 0;
+}
+
+.card_info{
+  color: #fff;
+  font-size: 19px;
+}
+
+#card_buttons{
+  display: block;
+  text-align: right;
+}
+
+/*HOME*/
+  .card_home{
+    display: grid;
+    grid-template: 1fr/400px auto;
+    grid-gap: 10px;
+    grid-template-areas: "card_description card_options";
+  }
+  .card_description{
+    grid-area: card_description;
+    text-align: justify;
+  }
+  .card_options{
+    grid-area: card_options;
+  }
+  #options{
+    border: solid 1px #eeb213;
+    background: transparent;
+  }
+  .card_stepper{
+    display: grid;
+    grid-template: 1fr auto/50% 50%;
+    grid-gap: 10px;
+    grid-template-areas: "card_im1 card_dim" "card_im2 card_im2";
+    justify-items: center;
+    align-items: center;
+  }
+  .card_im1{
+    grid-area: card_im1;
+  }
+  .card_im2{
+    grid-area: card_im2;
+  }
+  .card_dim{
+    grid-area: card_dim;
+  }
+  .card_ip1{
+    max-width: 220px;
+  }
+  .card_ip2{
+    width: 100%;
+  }
+/*ACERDA DE*/
+/*EDUCACION*/
+  .year_tl, 
+  .title_tl{
+    color: #fff;
+    border-radius: 20px;
+    /*border: solid 1px #b71c1c;*/
+    border: solid 1px #eeb213;
+    padding: 3px 10px 1px 10px;
+    text-align: center;
+  }
+  .description_tl{
+    text-align: justify;
+    color: #fff;
+    font-size: 16px;
+  }
+  .social_tl{
+    display: grid;
+    grid-template: 1fr/ 50px auto;
+    grid-gap: 5px;
+    grid-template-areas: "social_netwotk google_maps";
+    justify-items: center;
+    align-items: center;
+  }
+  .social_netwotk{
+    grid-area: social_netwotk;
+    display: grid;
+    grid-template: repeat(5, 1fr)/ auto;
+    grid-gap: 5px;
+    grid-template-areas: "oficial" "instagram" "twitter" "facebook" "linkedin";
+    justify-items: center;
+    align-items: center;
+  }
+  .oficial{
+    grid-area: oficial;
+  }
+  .instagram{
+    grid-area: instagram;
+  }
+  .twitter{
+    grid-area: twitter;
+  }
+  .facebook{
+    grid-area: facebook;
+  }
+  .linkedin{
+    grid-area: linkedin;
+  }
+  .google_maps{
+    grid-area: google_maps;
+  }
+/*PORTAFOLIO*/
+  #expansion_panel{
+    background: transparent;
+  }
+  .epc_sistemas{
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-content: center;
+  }
+  .epc_sistema{
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #eeb213;
+    cursor: pointer;
+  }
+  .isistema{
+    width: 100%;
+  }
+/*CONTACTO*/
+  .card_contacto{
+    display: grid;
+    grid-template: 1fr/repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-template-areas: "card_msg card_form";
+  }
+  .card_msg{
+    grid-area: card_msg;
+    text-align: justify;
+  }
+  .card_form{
+    grid-area: card_form;
+    padding: 0 10px;
+  }
+  .fer{
+    float: right;
+  }
+/**/
+@media screen and (max-width: 1264px) {
+  .card_stepper{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: "card_dim" "card_im1" "card_im2";
+  }
+}
+@media screen and (max-width: 960px) {
+  .card_home{
+    display: grid;
+    grid-template: 1fr/300px auto;
+    grid-template-areas: "card_description card_options";
+  }
+}
+@media screen and (max-width: 768px) {
+  .card_home{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: "card_description" "card_options";
+  }
+  .epc_sistemas{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 640px) {
+  .card_contacto{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: "card_msg" "card_form";
+  }
+  .social_tl{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: "social_netwotk" "google_maps";
+  }
+  .social_netwotk{
+    display: grid;
+    grid-template: auto / repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-template-areas: "linkedin facebook twitter instagram oficial";
+    /*grid-template-areas: "instagram twitter facebook linkedin";*/
+  }
+}
+@media screen and (max-width: 576px) {
+  .epc_sistemas{
+    grid-template-columns: 1fr;
+  }
+}
+
