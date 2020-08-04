@@ -22122,6 +22122,7 @@ var render = function() {
         { attrs: { absolute: true, app: "" } },
         [
           _c("v-app-bar-nav-icon", {
+            attrs: { id: "toolbar_icon" },
             on: {
               click: function($event) {
                 $event.stopPropagation()

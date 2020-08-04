@@ -84,6 +84,9 @@ button:focus {
     text-shadow: 0px 0px 1px #fff;
   }
 /*TOOLBAR*/
+  #toolbar_icon{
+    color: #fff;
+  }
   #toolbar_title{
     padding-left: 5px;
   }

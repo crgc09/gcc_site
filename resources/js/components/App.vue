@@ -40,8 +40,8 @@
         </ul>
       </v-navigation-drawer>
     <!--BARNAV-->
-      <v-app-bar :absolute="true"  app>
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar :absolute="true" app>
+        <v-app-bar-nav-icon id="toolbar_icon" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title id="toolbar_title">
           <h1 id="h1" class="bar_title">El Sitio</h1>
         </v-toolbar-title>
