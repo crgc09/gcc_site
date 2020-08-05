@@ -99,6 +99,9 @@ button:focus {
     position: relative;
     top: 4px;
   }
+  #bar_session{
+    background: #1e1e1e;
+  }
 /*FOOTER*/
   #footer_c1,
   #footer_c2

@@ -23,4 +23,9 @@
     <div id="app">
     </div>
   </body>
+  <script>
+    var lct = {
+      'csrfToken' : '{{csrf_token()}}'
+    };
+  </script>
 </html>

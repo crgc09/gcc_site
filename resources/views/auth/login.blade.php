@@ -3,92 +3,75 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <!-- Scripts 
+      <script src="{{ asset('js/app.js') }}" defer></script>
+    -->
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 </head>
-<body>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<body style="background-image: url(public/img/landings/slash.png), url(public/img/landings/pa1.jpg);">
+  <div id="app">
+    <div id="appLogin">
+      <div id="login">
+        <h2 id="h2" class="login-title">
+          Login
+        </h2>
+        <div class="login-ta">
+          <p class="login-text login-msg mt-2">
+            Por favor usa las credenciales de <strong>user:</strong> <span class="login-online">invitado@invitado.com</span> y <strong>password:</strong> <span class="login-online">#ola1234</span> para poder acceder
+          </p>
+          <p class="login-text login-msg">
+            Tambien puedes acceder con tu cuenta de Facebook si lo prefieres.
+          </p>  
         </div>
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="form-group row">
+            <label for="email" class="col-md-4 col-form-label text-left login-txt login-text">{{ __('E-Mail Address') }}</label>
+            <div class="col-md-8 input-group-sm">
+              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+              @error('email')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="password" class="col-md-4 col-form-label text-md-left login-txt login-text">{{ __('Password') }}</label>
+
+            <div class="col-md-8 input-group-sm">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+          </div>
+          <div class="form-group row mb-0">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn btn-outline-light btn-sm btn-block login-text">
+                <i class="fas fa-sign-in-alt"></i> {{ __('Login') }} 
+              </button>
+              <button type="button" class="btn btn btn-outline-light btn-sm btn-block login-text">
+                <i class="fab fa-facebook"></i> Login with Facebook 
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 </body>
 </html>
 

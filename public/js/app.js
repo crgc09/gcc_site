@@ -2024,12 +2024,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       drawer: null,
-      fab: false
+      fab: false,
+      csrft: ''
     };
+  },
+  mounted: function mounted() {
+    this.csrft = window.lct.csrfToken;
   }
 });
 
@@ -22177,11 +22186,59 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "v-list",
+                { attrs: { id: "bar_session" } },
                 [
                   _c(
                     "v-list-item",
-                    { on: { click: function($event) {} } },
-                    [_c("v-list-item-title", [_vm._v("Cerrar sesión")])],
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: {
+                            text: "",
+                            small: "",
+                            dark: "",
+                            onclick:
+                              "event.preventDefault();document.getElementById('logout-form').submit();"
+                          }
+                        },
+                        [_vm._v("\n              Cerrar sesión\n            ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "form",
+                        {
+                          staticStyle: { display: "none" },
+                          attrs: {
+                            id: "logout-form",
+                            action: "http://localhost/gcc_site/logout",
+                            method: "POST"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.csrft,
+                                expression: "csrft"
+                              }
+                            ],
+                            attrs: { type: "hidden", name: "_token" },
+                            domProps: { value: _vm.csrft },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.csrft = $event.target.value
+                              }
+                            }
+                          })
+                        ]
+                      )
+                    ],
                     1
                   )
                 ],
@@ -85285,29 +85342,32 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify/index.js");
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify/index.js");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.vue");
 
 
 
 
-var app = new Vue({
+
+var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
-  vuetify: _vuetify__WEBPACK_IMPORTED_MODULE_2__["default"],
-  router: _routes__WEBPACK_IMPORTED_MODULE_1__["default"],
+  vuetify: _vuetify__WEBPACK_IMPORTED_MODULE_3__["default"],
+  router: _routes__WEBPACK_IMPORTED_MODULE_2__["default"],
   render: function render(h) {
-    return h(_components_App__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    return h(_components_App__WEBPACK_IMPORTED_MODULE_4__["default"]);
   }
 });
+/* harmony default export */ __webpack_exports__["default"] = (app);
 
 /***/ }),
 
@@ -86376,12 +86436,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
-/* harmony default export */ __webpack_exports__["default"] = (new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
-  /*theme: {
-    dark: false,
-  },
-  */
-}));
+/* harmony default export */ __webpack_exports__["default"] = (new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a());
 
 /***/ }),
 

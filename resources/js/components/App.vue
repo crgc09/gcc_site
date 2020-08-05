@@ -52,9 +52,14 @@
               <v-icon>mdi-account-circle</v-icon>
             </v-btn>
           </template>
-          <v-list>
-            <v-list-item @click="">
-              <v-list-item-title>Cerrar sesión</v-list-item-title>
+          <v-list id="bar_session">
+            <v-list-item>
+              <v-btn text small dark onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                Cerrar sesión
+              </v-btn>
+              <form id="logout-form" action="http://localhost/gcc_site/logout" method="POST" style="display: none;">
+                <input type="hidden" name="_token" v-model="csrft">
+              </form>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -119,7 +124,11 @@
     data: () => ({
       drawer: null,
       fab: false,
+      csrft: ''
     }),
+    mounted(){
+      this.csrft = window.lct.csrfToken;
+    }
   }
 </script>
 <style lang="scss" scoped>

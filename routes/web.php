@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
-
+//Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('login', 'Auth\LoginController@login');
+//
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/acerca_de', 'HomeController@index');

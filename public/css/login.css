@@ -1,0 +1,68 @@
+body{
+  background-color: transparent;
+  background-repeat: repeat, no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: auto, cover;
+  -moz-background-size: auto, cover;
+  -o-background-size: auto, cover;
+  background-size: auto, cover;
+}
+button:focus {
+  outline: none;
+}
+#h1, #h2, #h3, #h4{
+  margin-bottom: 0;
+}
+#h1{
+  font-size: 40px;
+}
+#h2{
+  font-size: 32px;
+}
+#h3{
+  font-size: 22px;
+}
+#h4{
+  font-size: 18px;
+}
+/*APP*/
+#appLogin{
+  font-family: 'Josefin Slab', serif;
+  display: grid;
+  grid-gap: 15px;
+  height: 100vh;
+  grid-template: 1fr / 1fr;
+  justify-items: left;
+  align-items: center;
+}
+
+#login{
+  margin-left: 2%;
+  width: 460px;
+  height: max-content;
+  background: rgba(46, 49, 49, 0.6);
+  padding: 10px 15px 15px 15px;
+}
+.login-ta{
+  text-align: justify;
+}
+.login-title,
+.login-txt
+{
+  color: #eeb213;
+}
+.login-text{
+  font-size: 16px;
+}
+.login-online{
+  text-decoration: underline;
+}
+.login-msg{
+  color: #fff;
+}
+#email, #password{
+  font-size: 16px;
+  background: transparent;
+  color: #fff; 
+}
