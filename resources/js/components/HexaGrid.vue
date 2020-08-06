@@ -10,7 +10,7 @@
             <a class="hexLink" href="#">
               <img :src="item.img"/>
               <h4 id="h4">{{key+1}}</h4>
-              <p>{{item.titulo}}</p>
+              <p>{{item.title}}</p>
             </a>
           </div>
         </li>

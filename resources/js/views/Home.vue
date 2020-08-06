@@ -10,7 +10,6 @@
             </div>
             <div class="card_options">
               <v-stepper id="options" v-model="control" vertical dark>
-
                 <v-stepper-step :complete="control > 1" step="1">
                   Home
                 </v-stepper-step>
@@ -196,11 +195,20 @@
       HeaderCard
     },
     data:()=>({
+      opciones: [],
       image: 'http://localhost/gcc_site/public/img/menu/home.png',
       title: 'Home',
       intro: 'Visit ten places on our planet that are undergoing the biggest changes today.',
       msg: '<p>¡Hey que tal!. Mi nombre es <strong>Cris</strong> y dejame darte la bienvenido a mi sitio web.</p><p>Este sitio tiene como proposito ser un puente de comunicación con posibles colaboradores, mostrando un poco de mi tanto personal como profesionalmente, mediantes las siguientes opciones que se serán descritas a continuación.</p><p>Si te interesó o te gustó el sitio por favor házmelo saber a través de los canales que proporcionaré a continuación o por mis redes sociales, que estan en la parte inferior derecha.</p><p>Sin más preámbulos comenzamos.</p>',
       control: 1,
     }),
+    mounted(){
+      //OPCIONES
+      axios
+      .get('opciones/')
+      .then((res) => {
+        this.opciones = res.data;
+      });
+    }
   }
 </script>

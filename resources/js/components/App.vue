@@ -112,9 +112,11 @@
       this.csrft = window.lct.csrfToken;
       //
       localStorage.setItem('ur', JSON.stringify(this.rol));
-      //
+      //USER
+
+      //MENU
       axios
-      .get('opciones/')
+      .get('menu/')
       .then((res) => {
         this.menu = res.data;
       });

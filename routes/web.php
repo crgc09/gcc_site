@@ -16,4 +16,8 @@ Route::get('/portafolio', 'HomeController@index');
 Route::get('/curriculum', 'HomeController@index');
 Route::get('/contacto', 'HomeController@index');
 //
+Route::get('/menu', 'CatalogosController@menu');
 Route::get('/opciones', 'CatalogosController@opciones');
+Route::get('/done', 'CatalogosController@done');
+Route::get('/doing', 'CatalogosController@doing');
+Route::get('/todo', 'CatalogosController@todo');
