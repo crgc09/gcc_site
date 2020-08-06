@@ -2043,11 +2043,6 @@ __webpack_require__.r(__webpack_exports__);
       rol: 1
     };
   },
-  methods: {
-    admin: function admin() {
-      location.href = "http://localhost/gcc_site/admin";
-    }
-  },
   mounted: function mounted() {
     this.csrft = window.lct.csrfToken;
     localStorage.setItem('ur', JSON.stringify(this.rol));

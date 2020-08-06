@@ -63,6 +63,21 @@ return [
             ]) : [],
         ],
 
+        'gcc' => [
+            'driver' => env('DB_TRANS_CONNECTION'),
+            'host' => env('DB_TRANS_HOST', '127.0.0.1'),
+            'port' => env('DB_TRANS_PORT', '3306'),
+            'database' => env('DB_TRANS_DATABASE', 'forge'),
+            'username' => env('DB_TRANS_USERNAME', 'forge'),
+            'password' => env('DB_TRANS_PASSWORD', ''),
+            'unix_socket' => env('DB_TRANS_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

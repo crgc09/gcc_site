@@ -132,11 +132,6 @@
       csrft: '',
       rol: 1,
     }),
-    methods: {
-      admin(){
-        location.href = "http://localhost/gcc_site/admin"
-      }
-    },
     mounted(){
       this.csrft = window.lct.csrfToken;
       localStorage.setItem('ur', JSON.stringify(this.rol));
