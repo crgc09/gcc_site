@@ -53,8 +53,13 @@
             </v-btn>
           </template>
           <v-list id="bar_session">
+            <v-list-item v-if="rol===1">
+              <v-btn text small block dark to="/gcc_site/admin">
+                Admin
+              </v-btn>
+            </v-list-item>
             <v-list-item>
-              <v-btn text small dark onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+              <v-btn text small block dark onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 Cerrar sesión
               </v-btn>
               <form id="logout-form" action="http://localhost/gcc_site/logout" method="POST" style="display: none;">
@@ -124,10 +129,12 @@
     data: () => ({
       drawer: null,
       fab: false,
-      csrft: ''
+      csrft: '',
+      rol: 1,
     }),
     mounted(){
       this.csrft = window.lct.csrfToken;
+      localStorage.setItem('ur', JSON.stringify(this.rol));
     }
   }
 </script>

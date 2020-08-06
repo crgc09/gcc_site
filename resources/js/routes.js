@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from './views/Home';
+import Admin from './views/Admin';
 import About from './views/About';
 import Educacion from './views/Educacion';
 import Portafolio from './views/Portafolio';
@@ -9,9 +10,34 @@ import Contacto from './views/Contacto';
 
 Vue.use(VueRouter);
 
+function requireAR (to, from, next) {
+  let rol = JSON.parse(localStorage.getItem('ur'));
+  switch( to.meta.permission ){
+    case 'user':
+      if(rol==2){
+        next();
+      }
+      else{
+        next({path: '/gcc_site/home'});
+      }
+    break;
+    case 'admin':
+      if(rol==1){
+        next();
+      }
+      else{
+        next({path: '/gcc_site/home'});
+      }
+    break;
+    default:
+      next({path: '/gcc_site/home'});
+  }  
+}
+
 const router = new VueRouter({
   mode: 'history',
   routes: [
+    //All
     { 
       path: '/gcc_site',
       name: '/',
@@ -46,6 +72,16 @@ const router = new VueRouter({
       path: '/gcc_site/contacto',
       name: 'contacto',
       component: Contacto
+    },
+    //ADMIN
+    { 
+      path: '/gcc_site/admin',
+      name: 'admin',
+      component: Admin,
+      beforeEnter: requireAR,
+      meta: {
+        permission: 'admin'
+      }
     },
   ]
 });

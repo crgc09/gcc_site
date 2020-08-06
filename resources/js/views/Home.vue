@@ -10,6 +10,7 @@
             </div>
             <div class="card_options">
               <v-stepper id="options" v-model="control" vertical dark>
+
                 <v-stepper-step :complete="control > 1" step="1">
                   Home
                 </v-stepper-step>
@@ -36,6 +37,7 @@
                     </v-btn>
                   </div>
                 </v-stepper-content>
+
                 <v-stepper-step :complete="control > 2" step="2">
                   Acerca de
                 </v-stepper-step>
@@ -64,6 +66,7 @@
                     </v-btn>
                   </div>
                 </v-stepper-content>
+
                 <v-stepper-step :complete="control > 3" step="3">
                   Educación
                 </v-stepper-step>
@@ -120,6 +123,7 @@
                     </v-btn>
                   </div>
                 </v-stepper-content>
+                
                 <v-stepper-step  :complete="control > 5" step="5">
                   Curriculum
                 </v-stepper-step>
@@ -148,6 +152,7 @@
                     </v-btn>
                   </div>
                 </v-stepper-content>
+
                 <v-stepper-step step="6">
                   Contacto
                 </v-stepper-step>
