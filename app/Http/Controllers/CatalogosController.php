@@ -50,6 +50,12 @@ class CatalogosController extends Controller
       ->get();
     return $todo->toJson();
   }
-
+  //ESCUELAS
+  public function escuelas(){
+    $esc = $this->db_gcc->table('escuelas')
+      ->orderBy('id_escuela', 'desc')
+      ->get();
+    return $esc->toJson();
+  }
 
 }

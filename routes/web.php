@@ -21,3 +21,4 @@ Route::get('/opciones', 'CatalogosController@opciones');
 Route::get('/done', 'CatalogosController@done');
 Route::get('/doing', 'CatalogosController@doing');
 Route::get('/todo', 'CatalogosController@todo');
+Route::get('/escuelas', 'CatalogosController@escuelas');
