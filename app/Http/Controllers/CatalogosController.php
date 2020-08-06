@@ -14,7 +14,10 @@ class CatalogosController extends Controller
     $this->db_gcc = DB::connection('gcc');
   }
 
-  public function empresas(){
-    return view('home');
+  public function opciones(){
+    $opt = $this->db_gcc->table('opciones')
+      ->select('id_opcion','opcion','url')
+      ->get();
+    return $opt->toJson();
   }
 }

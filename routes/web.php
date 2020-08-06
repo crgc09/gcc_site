@@ -15,4 +15,5 @@ Route::get('/educacion', 'HomeController@index');
 Route::get('/portafolio', 'HomeController@index');
 Route::get('/curriculum', 'HomeController@index');
 Route::get('/contacto', 'HomeController@index');
-
+//
+Route::get('/opciones', 'CatalogosController@opciones');

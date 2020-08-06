@@ -2009,34 +2009,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      menu: [],
       drawer: null,
       fab: false,
       csrft: '',
@@ -2044,8 +2020,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.csrft = window.lct.csrfToken;
-    localStorage.setItem('ur', JSON.stringify(this.rol));
+    var _this = this;
+
+    this.csrft = window.lct.csrfToken; //
+
+    localStorage.setItem('ur', JSON.stringify(this.rol)); //
+
+    axios.get('opciones/').then(function (res) {
+      _this.menu = res.data;
+    });
   }
 });
 
@@ -22106,67 +22089,25 @@ var render = function() {
           _vm._v(" "),
           _c("v-divider"),
           _vm._v(" "),
-          _c("ul", { staticClass: "nav_options" }, [
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/gcc_site/home" } }, [
-                  _vm._v("\n            Home\n          ")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/gcc_site/acerca_de" } }, [
-                  _vm._v("\n            Acerca de\n          ")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/gcc_site/educacion" } }, [
-                  _vm._v("\n            Educación\n          ")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/gcc_site/portafolio" } }, [
-                  _vm._v("\n            Portafolio\n          ")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/gcc_site/curriculum" } }, [
-                  _vm._v("\n            Curriculum\n          ")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/gcc_site/contacto" } }, [
-                  _vm._v("\n            Contacto\n          ")
-                ])
-              ],
-              1
-            )
-          ])
+          _c(
+            "ul",
+            { staticClass: "nav_options" },
+            _vm._l(_vm.menu, function(me, key) {
+              return _c(
+                "li",
+                { key: me.id_opt },
+                [
+                  _c("router-link", { attrs: { to: me.url } }, [
+                    _vm._v(
+                      "\n            " + _vm._s(me.opcion) + "\n          "
+                    )
+                  ])
+                ],
+                1
+              )
+            }),
+            0
+          )
         ],
         1
       ),
@@ -85475,6 +85416,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   vuetify: _vuetify__WEBPACK_IMPORTED_MODULE_3__["default"],

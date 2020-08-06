@@ -7,34 +7,9 @@
         </div >
         <v-divider></v-divider>
         <ul class="nav_options">
-          <li>
-            <router-link to="/gcc_site/home">
-              Home
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/gcc_site/acerca_de">
-              Acerca de
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/gcc_site/educacion">
-              Educación
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/gcc_site/portafolio">
-              Portafolio
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/gcc_site/curriculum">
-              Curriculum
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/gcc_site/contacto">
-              Contacto
+          <li v-for="(me, key) in menu" :key="me.id_opt">
+            <router-link :to="me.url">
+              {{me.opcion}}
             </router-link>
           </li>
         </ul>
@@ -127,6 +102,7 @@
 <script>
   export default {
     data: () => ({
+      menu: [],
       drawer: null,
       fab: false,
       csrft: '',
@@ -134,7 +110,14 @@
     }),
     mounted(){
       this.csrft = window.lct.csrfToken;
+      //
       localStorage.setItem('ur', JSON.stringify(this.rol));
+      //
+      axios
+      .get('opciones/')
+      .then((res) => {
+        this.menu = res.data;
+      });
     }
   }
 </script>
