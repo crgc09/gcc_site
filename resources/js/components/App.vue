@@ -54,7 +54,7 @@
           </template>
           <v-list id="bar_session">
             <v-list-item v-if="rol===1">
-              <v-btn text small block dark to="/gcc_site/admin">
+              <v-btn text small block dark :link="true" to="/gcc_site/admin">
                 Admin
               </v-btn>
             </v-list-item>
@@ -132,6 +132,11 @@
       csrft: '',
       rol: 1,
     }),
+    methods: {
+      admin(){
+        location.href = "http://localhost/gcc_site/admin"
+      }
+    },
     mounted(){
       this.csrft = window.lct.csrfToken;
       localStorage.setItem('ur', JSON.stringify(this.rol));
