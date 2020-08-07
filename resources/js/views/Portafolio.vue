@@ -74,7 +74,8 @@
       image: 'http://localhost/gcc_site/public/img/menu/port.png',
       title: 'Portafolio',
       //CARGA
-      laboral : [
+      laboral: [
+      /*
         {img: 'http://localhost/gcc_site/public/img/sistemas/intranet.png', empresa: 'Laureate International Universities', sistema: 'Intranet'},
         {img: 'http://localhost/gcc_site/public/img/sistemas/laureate_atc.png', empresa: 'Laureate International Universities', sistema: 'Laureate ATC'},
         {img: 'http://localhost/gcc_site/public/img/sistemas/stps.png', empresa: 'Laureate International Universities', sistema: 'STPS'},
@@ -84,23 +85,39 @@
         {img: 'http://localhost/gcc_site/public/img/sistemas/path.png', empresa: 'Laureate International Universities', sistema: 'Tutoriales PATH'},
         {img: 'http://localhost/gcc_site/public/img/sistemas/vc.png', empresa: 'Laureate International Universities', sistema: 'Ventas Comercial'},
         {img: 'http://localhost/gcc_site/public/img/sistemas/edc.png', empresa: 'Laureate International Universities', sistema: 'Estado de Cuenta'},
+        */
       ],
-      freelance: [
-        {img:'http://localhost/gcc_site/public/img/sistemas/banobras.png', empresa:'COORDINA GRUPO SAGMA', sistema:'Banobras'},
-        {img:'http://localhost/gcc_site/public/img/sistemas/cnbv.png', empresa:'CNBV', sistema:'Sistema de Auditoría'}
-      ],
-      universidad: [
-        {img:'http://localhost/gcc_site/public/img/sistemas/cimca.png', empresa:'UNAM FI DICYG', sistema:'CIMCA'},
-        {img:'http://localhost/gcc_site/public/img/sistemas/uccursos.png', empresa:'UNAM FI DICYG', sistema:'UC Cursos'},
-        {img:'http://localhost/gcc_site/public/img/sistemas/sitt.png', empresa:'UNAM FI DICYG', sistema:'SITT - Alumnos'},
-        {img:'http://localhost/gcc_site/public/img/sistemas/sittp.png', empresa:'UNAM FI DICYG', sistema:'SITT - Profesores'},
-        {img:'http://localhost/gcc_site/public/img/sistemas/sitta.png', empresa:'UNAM FI DICYG', sistema:'SITT - Comité Administrativo'},
-      ],
-      desarrollo: [
-        {img: 'http://localhost/gcc_site/public/img/sistemas/comunicados.png', empresa: 'Laureate International Universities', sistema: 'Comunicados Laureate'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/comunicacion.png', empresa: 'Laureate International Universities', sistema: 'Comunicación'},
-      ]
+      freelance: [],
+      universidad: [],
+      desarrollo: []
     }),
+    //
+    mounted(){
+      //UNIVERSIDAD
+      axios
+      .get('laboral/')
+      .then((res) => {
+        this.laboral = res.data;
+      });
+      //UNIVERSIDAD
+      axios
+      .get('freelance/')
+      .then((res) => {
+        this.freelance = res.data;
+      });
+      //UNIVERSIDAD
+      axios
+      .get('universitario/')
+      .then((res) => {
+        this.universidad = res.data;
+      });
+      //UNIVERSIDAD
+      axios
+      .get('desarrollo/')
+      .then((res) => {
+        this.desarrollo = res.data;
+      });
+    }
   }
 </script>
 <style lang="scss" scoped>

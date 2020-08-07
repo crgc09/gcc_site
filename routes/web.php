@@ -22,3 +22,7 @@ Route::get('/done', 'CatalogosController@done');
 Route::get('/doing', 'CatalogosController@doing');
 Route::get('/todo', 'CatalogosController@todo');
 Route::get('/escuelas', 'CatalogosController@escuelas');
+Route::get('/laboral', 'CatalogosController@laboral');
+Route::get('/freelance', 'CatalogosController@freelance');
+Route::get('/universitario', 'CatalogosController@universitario');
+Route::get('/desarrollo', 'CatalogosController@desarrollo');

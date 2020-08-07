@@ -3360,6 +3360,163 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3374,15 +3531,18 @@ __webpack_require__.r(__webpack_exports__);
       msg: '<p>¡Hey que tal!. Mi nombre es <strong>Cris</strong> y dejame darte la bienvenido a mi sitio web.</p><p>Este sitio tiene como proposito ser un puente de comunicación con posibles colaboradores, mostrando un poco de mi tanto personal como profesionalmente, mediantes las siguientes opciones que se serán descritas a continuación.</p><p>Si te interesó o te gustó el sitio por favor házmelo saber a través de los canales que proporcionaré a continuación o por mis redes sociales, que estan en la parte inferior derecha.</p><p>Sin más preámbulos comenzamos.</p>',
       control: 1
     };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
+  }
+  /*
+  mounted(){
     //OPCIONES
-    axios.get('opciones/').then(function (res) {
-      _this.opciones = res.data;
+    axios
+    .get('opciones/')
+    .then((res) => {
+      this.opciones = res.data;
     });
   }
+  */
+
 });
 
 /***/ }),
@@ -3477,83 +3637,44 @@ __webpack_require__.r(__webpack_exports__);
       image: 'http://localhost/gcc_site/public/img/menu/port.png',
       title: 'Portafolio',
       //CARGA
-      laboral: [{
-        img: 'http://localhost/gcc_site/public/img/sistemas/intranet.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Intranet'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/laureate_atc.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Laureate ATC'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/stps.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'STPS'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/rewards.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Rewards'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/medico_online.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Medico Online'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/reco.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Reconocimiento'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/path.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Tutoriales PATH'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/vc.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Ventas Comercial'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/edc.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Estado de Cuenta'
-      }],
-      freelance: [{
-        img: 'http://localhost/gcc_site/public/img/sistemas/banobras.png',
-        empresa: 'COORDINA GRUPO SAGMA',
-        sistema: 'Banobras'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/cnbv.png',
-        empresa: 'CNBV',
-        sistema: 'Sistema de Auditoría'
-      }],
-      universidad: [{
-        img: 'http://localhost/gcc_site/public/img/sistemas/cimca.png',
-        empresa: 'UNAM FI DICYG',
-        sistema: 'CIMCA'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/uccursos.png',
-        empresa: 'UNAM FI DICYG',
-        sistema: 'UC Cursos'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/sitt.png',
-        empresa: 'UNAM FI DICYG',
-        sistema: 'SITT - Alumnos'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/sittp.png',
-        empresa: 'UNAM FI DICYG',
-        sistema: 'SITT - Profesores'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/sitta.png',
-        empresa: 'UNAM FI DICYG',
-        sistema: 'SITT - Comité Administrativo'
-      }],
-      desarrollo: [{
-        img: 'http://localhost/gcc_site/public/img/sistemas/comunicados.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Comunicados Laureate'
-      }, {
-        img: 'http://localhost/gcc_site/public/img/sistemas/comunicacion.png',
-        empresa: 'Laureate International Universities',
-        sistema: 'Comunicación'
-      }]
+      laboral: [
+        /*
+          {img: 'http://localhost/gcc_site/public/img/sistemas/intranet.png', empresa: 'Laureate International Universities', sistema: 'Intranet'},
+          {img: 'http://localhost/gcc_site/public/img/sistemas/laureate_atc.png', empresa: 'Laureate International Universities', sistema: 'Laureate ATC'},
+          {img: 'http://localhost/gcc_site/public/img/sistemas/stps.png', empresa: 'Laureate International Universities', sistema: 'STPS'},
+          {img: 'http://localhost/gcc_site/public/img/sistemas/rewards.png', empresa: 'Laureate International Universities', sistema: 'Rewards'},
+          {img: 'http://localhost/gcc_site/public/img/sistemas/medico_online.png', empresa: 'Laureate International Universities', sistema: 'Medico Online'},
+          {img: 'http://localhost/gcc_site/public/img/sistemas/reco.png', empresa: 'Laureate International Universities', sistema: 'Reconocimiento'},  
+          {img: 'http://localhost/gcc_site/public/img/sistemas/path.png', empresa: 'Laureate International Universities', sistema: 'Tutoriales PATH'},
+          {img: 'http://localhost/gcc_site/public/img/sistemas/vc.png', empresa: 'Laureate International Universities', sistema: 'Ventas Comercial'},
+          {img: 'http://localhost/gcc_site/public/img/sistemas/edc.png', empresa: 'Laureate International Universities', sistema: 'Estado de Cuenta'},
+          */
+      ],
+      freelance: [],
+      universidad: [],
+      desarrollo: []
     };
+  },
+  //
+  mounted: function mounted() {
+    var _this = this;
+
+    //UNIVERSIDAD
+    axios.get('laboral/').then(function (res) {
+      _this.laboral = res.data;
+    }); //UNIVERSIDAD
+
+    axios.get('freelance/').then(function (res) {
+      _this.freelance = res.data;
+    }); //UNIVERSIDAD
+
+    axios.get('universitario/').then(function (res) {
+      _this.universidad = res.data;
+    }); //UNIVERSIDAD
+
+    axios.get('desarrollo/').then(function (res) {
+      _this.desarrollo = res.data;
+    });
   }
 });
 
@@ -25861,7 +25982,7 @@ var render = function() {
                                           staticClass: "card_ip2",
                                           attrs: {
                                             src:
-                                              "https://miespaciolaureate.mx/gcc_media/pages/home2.png",
+                                              "https://miespaciolaureate.mx/gcc_media/pages/portafolio2.png",
                                             alt: ""
                                           }
                                         })
@@ -25976,7 +26097,7 @@ var render = function() {
                                           staticClass: "card_ip2",
                                           attrs: {
                                             src:
-                                              "https://miespaciolaureate.mx/gcc_media/pages/home2.png",
+                                              "https://miespaciolaureate.mx/gcc_media/pages/curriculum2.png",
                                             alt: ""
                                           }
                                         })

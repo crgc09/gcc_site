@@ -57,5 +57,41 @@ class CatalogosController extends Controller
       ->get();
     return $esc->toJson();
   }
-
+  //LABORAL
+  public function laboral(){
+    $laborla = $this->db_gcc->table('sistemas as sis')
+      ->join('empresas as em','em.id_empresa','=','sis.id_empresa')
+      ->select('sis.id_sistema as id_sis', 'sis.sistema as sistema', 'sis.url_img as img', 'em.empresa as empresa')
+      ->where('sis.id_proyecto','=',1)
+      ->where('sis.id_fase','=',2)
+      ->get();
+    return $laborla->toJson();
+  }
+  //FREELANCE
+  public function freelance(){
+    $freelance = $this->db_gcc->table('sistemas as sis')
+      ->join('empresas as em','em.id_empresa','=','sis.id_empresa')
+      ->select('sis.id_sistema as id_sis', 'sis.sistema as sistema', 'sis.url_img as img', 'em.empresa as empresa')
+      ->where('sis.id_proyecto','=',2)
+      ->get();
+    return $freelance->toJson();
+  }
+  //UNIVERSITARIO
+  public function universitario(){
+    $universitario = $this->db_gcc->table('sistemas as sis')
+      ->join('empresas as em','em.id_empresa','=','sis.id_empresa')
+      ->select('sis.id_sistema as id_sis', 'sis.sistema as sistema', 'sis.url_img as img', 'em.empresa as empresa')
+      ->where('sis.id_proyecto','=',3)
+      ->get();
+    return $universitario->toJson();
+  }
+  //DESARROLLO
+  public function desarrollo(){
+    $desarrollo = $this->db_gcc->table('sistemas as sis')
+      ->join('empresas as em','em.id_empresa','=','sis.id_empresa')
+      ->select('sis.id_sistema as id_sis', 'sis.sistema as sistema', 'sis.url_img as img', 'em.empresa as empresa')
+      ->where('sis.id_fase','=',1)
+      ->get();
+    return $desarrollo->toJson();
+  }
 }
