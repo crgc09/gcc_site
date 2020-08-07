@@ -74,19 +74,7 @@
       image: 'http://localhost/gcc_site/public/img/menu/port.png',
       title: 'Portafolio',
       //CARGA
-      laboral: [
-      /*
-        {img: 'http://localhost/gcc_site/public/img/sistemas/intranet.png', empresa: 'Laureate International Universities', sistema: 'Intranet'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/laureate_atc.png', empresa: 'Laureate International Universities', sistema: 'Laureate ATC'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/stps.png', empresa: 'Laureate International Universities', sistema: 'STPS'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/rewards.png', empresa: 'Laureate International Universities', sistema: 'Rewards'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/medico_online.png', empresa: 'Laureate International Universities', sistema: 'Medico Online'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/reco.png', empresa: 'Laureate International Universities', sistema: 'Reconocimiento'},  
-        {img: 'http://localhost/gcc_site/public/img/sistemas/path.png', empresa: 'Laureate International Universities', sistema: 'Tutoriales PATH'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/vc.png', empresa: 'Laureate International Universities', sistema: 'Ventas Comercial'},
-        {img: 'http://localhost/gcc_site/public/img/sistemas/edc.png', empresa: 'Laureate International Universities', sistema: 'Estado de Cuenta'},
-        */
-      ],
+      laboral: [],
       freelance: [],
       universidad: [],
       desarrollo: []

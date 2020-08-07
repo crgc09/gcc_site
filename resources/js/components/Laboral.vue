@@ -1,7 +1,7 @@
 <template>
   <div id="Laboral">
     <div class="epc_sistemas">
-      <div class="epc_sistema" v-for="(item, key) in entSys" @click="dlaboral = true">
+      <div class="epc_sistema" v-for="(item, key) in entSys" @click="openDialog(item.id_sis)">
         <img :src="item.img" class="isistema" alt="">
         <span id="h4">
           <strong>Empresa:</strong> <span>{{item.empresa}}</span>
@@ -16,7 +16,7 @@
       <v-dialog v-model="dlaboral" width="90%" persistent dark>
         <v-card>
           <v-card-title class="headline">
-            <span class="title_dia">Intranet</span>
+            <span class="title_dia">{{infoSys[0].sistema}}</span>
           </v-card-title>
           <v-card-text>
             <v-row align="center">
@@ -57,7 +57,7 @@
                               </div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/intranet.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -75,7 +75,7 @@
                               </v-row>
                               <div>
                                 <h4 id="h4">Fecha de desarrollo</h4>
-                                <div class="cinfo" v-html="infoSys[0].fecha"></div>
+                                <div class="cinfo" v-html="infoSys[0].inicio"></div>
                                 <h4 id="h4">Dirección</h4>
                                 <div class="cinfo" >
                                   <p>
@@ -87,7 +87,7 @@
                               </div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/intranet1.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img1" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -106,7 +106,7 @@
                               <div class="cinfo" v-html="infoSys[0].menu"></div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/intranet2.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img2" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -125,7 +125,7 @@
                               <div class="cinfo" v-html="infoSys[0].modulo_a"></div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/intranet3.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img3" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -140,7 +140,7 @@
                               <div class="cinfo" v-html="infoSys[0].modulo_b"></div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/intranet4.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img4" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -151,7 +151,7 @@
             </v-row>
           </v-card-text>
           <v-card-actions id="card_buttons">
-            <v-btn color="#eeb213" text @click="closeDL">Cerrar</v-btn>
+            <v-btn color="#eeb213" text @click="closeDialog">Cerrar</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -166,23 +166,46 @@
     data:()=>({
       infoSys: [
         {
-          frontend: 'HTML5, CSS3, JS, VueJS, Vue Material',
-          backend: 'PHP - Laravel',
-          base: 'MySQL', 
-          fecha: '<p>02-Julio-2018</p>',
-          descripcion: '<p>Directorio de los sitios y sistemas institucionales. agrupados mediante los pilares organizaciones.<br>Contiene módulos de administración de usuarios, roles y catálogos.</p>',
-          direccion: 'https://miespaciolaureate.com/intranet/login',
-          menu: '<ul><li><span class="lista_dia">User:</span> contiene las opciones de ver perfil, el cual es una ventana modal con toda la información del este. Y la opción de cerrar sesión</li><li><span class="lista_dia">Admin:</span> opción solo disponible para administradores del sistema, el cual contiene las secciones para el control de "Usuario", "Catálogos" y "Contactos".</li><li><span class="lista_dia">ADN:</span> primer pilar organizacional dedicado a explicar quienes somos y que buscamos como empresa. Junto con todos los sistemas que tengan que ver con estos temas.</li><li><span class="lista_dia">Talento:</span> segundo pilar organizacional especializado unicamente en el desarrollo y objetivos del personal de la empresa </li><li><span class="lista_dia">Bienestar:</span> tercer pilar organizacional el cual contiene toda la informacion de las recompensas, prestaciones y beneficios del colaborador</li><li><span class="lista_dia">Capacitación:</span> cuarto pilar organizacional dedicado exclisivamente a la capacitación de los colaboradores</li><li><span class="lista_dia">Atracción:</span> pilar organizacional encargado de reclutar a los nuvos colaboradores basandonose en los principios de la empresa "Here for good"</li></ul>',
-          modulo_a: '<p>Como módulo de muestra describiremos el modulo de "Usuarios".</p><p>Este módulo esta conformado por .</p>',
-          modulo_b: '<p>Una vez que se ha agregado un nuevo colaborar, es posible editar su información básica y su respectivo rol, ya que un usuario puede tener o no permisos para interactuar con ciertos sistemas, dependiendo del proposito o la acción que este autorizado a realizar dentro de la institución.</p><p>En el caso puntal del sistema de "Intranet", todos los usuarios pertenecientes al directorio de México tienen automáticamente acceso al sistema.</p>',
-        },
+          sistema: '',
+          backend: '',
+          base: '',
+          descripcion: '',
+          direccion: '',
+          frontend: '',
+          inicio: '',
+          menu: '',
+          modulo_a: '',
+          modulo_b: '',
+          url_img: '',
+          url_img1: '',
+          url_img2: '',
+          url_img3: '',
+          url_img4: '',
+        }
       ],
       dlaboral: false,
       length: 5,
       window: 0,
     }),
     methods: {
-      closeDL(){
+      openDialog(id){
+        let url='sistemas/'+id;
+        axios
+        .get(url)
+        .then((res) => {
+          if(res.data.length==1){
+            this.infoSys = res.data;
+            this.dlaboral = true;
+          }
+          else{
+            alert("Error");
+          }
+        })
+        .catch(error => {
+          alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+        });
+      },
+      closeDialog(){
         this.window = 0;
         this.dlaboral = false;
       }

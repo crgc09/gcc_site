@@ -1,7 +1,7 @@
 <template>
   <div id="Universidad">
     <div class="epc_sistemas">
-      <div class="epc_sistema" v-for="(item, key) in entSys" @click="duni = true"> 
+      <div class="epc_sistema" v-for="(item, key) in entSys" @click="openDialog(item.id_sis)"> 
         <img :src="item.img" class="isistema" alt="">
         <span id="h4">
           <strong>Institución:</strong> <span>{{item.empresa}}</span>
@@ -16,7 +16,7 @@
       <v-dialog v-model="duni" width="90%" persistent dark>
         <v-card>
           <v-card-title class="headline">
-            <span class="title_dia">CIMCA</span>
+            <span class="title_dia">{{infoSys[0].sistema}}</span>
           </v-card-title>
           <v-card-text>
             <v-row align="center">
@@ -57,7 +57,7 @@
                               </div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/cimca.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -75,7 +75,7 @@
                               </v-row>
                               <div>
                                 <h4 id="h4">Responsabilidades</h4>
-                                <div class="cinfo" v-html="infoSys[0].responsabilidades"></div>
+                                <div class="cinfo" v-html="infoSys[0].responsabilidad"></div>
                                 <h4 id="h4">Módulos o tareas desarrolladas</h4>
                                 <div class="cinfo" v-html="infoSys[0].tareas"></div>
                                 <h4 id="h4">Tiempo de participación</h4>
@@ -89,7 +89,7 @@
                               </v-row>
                               <div>
                                 <h4 id="h4">Fecha de desarrollo</h4>
-                                <div class="cinfo" v-html="infoSys[0].fecha"></div>
+                                <div class="cinfo" v-html="infoSys[0].inicio"></div>
                                 <h4 id="h4">Dirección</h4>
                                 <div class="cinfo" >
                                   <p>
@@ -110,7 +110,7 @@
             </v-row>
           </v-card-text>
           <v-card-actions id="card_buttons">
-            <v-btn color="#eeb213" text @click="closeDU">Cerrar</v-btn>
+            <v-btn color="#eeb213" text @click="closeDialog">Cerrar</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -125,15 +125,17 @@
     data:()=>({
       infoSys: [
         {
-          frontend: 'HTML5, CSS3, JS, Material CSS',
-          backend: 'PHP - CodeIgniter',
-          base: 'MySQL',
-          responsabilidades: '<p>Diseño y desarrollo del frontend, backend, base de datos, junto con el despliegue en el servidor.</p>',
-          tareas: '<p>Todos los módulos</p>',
-          tiempo: '<p>Toda la duración del proyecto</p>',
-          fecha: '<p>28-Agosto-2019</p>',
-          descripcion: '<p>Sistema de información para los ciclos de ponencia de ingeniería ambiental. Proporcionando las bases para dicha convocatoria.</p>',
-          direccion: 'http://cimca.ingenieria.unam.mx/',
+          sistema: '',
+          frontend: '',
+          backend: '',
+          base: '',
+          responsabilidad: '',
+          tareas: '',
+          tiempo: '',
+          inicio: '',
+          descripcion: '',
+          direccion: '',
+          url_img: '',
         }
       ],
       duni: false,
@@ -141,9 +143,26 @@
       window: 0,
     }),
     methods: {
-      closeDU(){
+      openDialog(id){
+        let url='sistemas/'+id;
+        axios
+        .get(url)
+        .then((res) => {
+          if(res.data.length==1){
+            this.infoSys = res.data;
+            this.duni = true;
+          }
+          else{
+            alert("Error");
+          }
+        })
+        .catch(error => {
+          alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+        });
+      },
+      closeDialog(){
         this.window = 0;
-        this.duni = false;
+        this.duni= false;
       }
     }
   }

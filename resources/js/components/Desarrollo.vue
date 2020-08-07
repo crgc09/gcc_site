@@ -1,7 +1,7 @@
 <template>
   <div id="Desarrollo">
     <div class="epc_sistemas">
-      <div class="epc_sistema" v-for="(item, key) in entSys" @click="ddep = true"> 
+      <div class="epc_sistema" v-for="(item, key) in entSys" @click="openDialog(item.id_sis)"> 
         <img :src="item.img" class="isistema" alt="">
         <span id="h4">
           <strong>Empresa o Institución:</strong> <span>{{item.empresa}}</span>
@@ -16,7 +16,7 @@
       <v-dialog v-model="ddep" width="90%" persistent dark>
         <v-card>
           <v-card-title class="headline">
-            <span class="title_dia">Comunicados Laureate</span>
+            <span class="title_dia">{{infoSys[0].sistema}}</span>
             </v-card-title>
           <v-card-text>
             <v-row align="center">
@@ -57,7 +57,7 @@
                               </div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/comunicados.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -75,7 +75,7 @@
                               </v-row>
                               <div>
                                 <h4 id="h4">Responsabilidades</h4>
-                                <div class="cinfo" v-html="infoSys[0].responsabilidades"></div>
+                                <div class="cinfo" v-html="infoSys[0].responsabilidad"></div>
                                 <h4 id="h4">Módulos o tareas desarrolladas</h4>
                                 <div class="cinfo" v-html="infoSys[0].tareas"></div>
                                 <h4 id="h4">Fecha de inicio</h4>
@@ -89,7 +89,7 @@
                               </v-row>
                               <div>
                                 <h4 id="h4">Objetivos</h4>
-                                <div class="cinfo" v-html="infoSys[0].descripcion"></div>
+                                <div class="cinfo" v-html="infoSys[0].objetivos"></div>
                                 <h4 id="h4">Descripción</h4>
                                 <div class="cinfo" v-html="infoSys[0].descripcion"></div>
                               </div>
@@ -103,7 +103,7 @@
             </v-row>
           </v-card-text>
           <v-card-actions id="card_buttons">
-            <v-btn color="#eeb213" text @click="closeDD">Cerrar</v-btn>
+            <v-btn color="#eeb213" text @click="closeDialog">Cerrar</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -118,15 +118,18 @@
     data:()=>({
       infoSys: [
         {
-          frontend: 'HTML5, CSS3, JS, Vue JS, Element IO',
-          backend: 'PHP - Laravel',
-          base: 'MySQL',
-          responsabilidades: '<p>Diseño y desarrollo del frontend, backend, base de datos, junto con el despliegue en el servidor.</p>',
-          tareas: '<p>Todos los módulos</p>',
-          tiempo: '<p>Toda la duración del proyecto</p>',
-          fecha: '<p>28-Agosto-2019</p>',
-          descripcion: '<p>Sistema de información para los ciclos de ponencia de ingeniería ambiental. Proporcionando las bases para dicha convocatoria.</p>',
-          direccion: 'SIN DIRECCIÓN ASIGNADA',
+          sistema: '',
+          frontend: '',
+          backend: '',
+          base: '',
+          responsabilidad: '',
+          tareas: '',
+          tiempo: '',
+          inicio: '',
+          descripcion: '',
+          objetivos: '',
+          direccion: '',
+          url_img: '',
         }
       ],
       ddep: false,
@@ -134,7 +137,24 @@
       window: 0,
     }),
     methods: {
-      closeDD(){
+      openDialog(id){
+        let url='sistemas/'+id;
+        axios
+        .get(url)
+        .then((res) => {
+          if(res.data.length==1){
+            this.infoSys = res.data;
+            this.ddep = true;
+          }
+          else{
+            alert("Error");
+          }
+        })
+        .catch(error => {
+          alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+        });
+      },
+      closeDialog(){
         this.window = 0;
         this.ddep = false;
       }

@@ -2205,17 +2205,19 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       infoSys: [{
-        frontend: 'HTML5, CSS3, JS, VueJS, BootstrapVue',
-        backend: 'PHP - Laravel',
-        base: 'MySQL',
-        responsabilidades: '<p>Diseño y desarrollo del frontend backend.</p>',
-        tareas: '<p>Todos los módulos</p>',
-        tiempo: '<p>Agosto a Octubre del 2019</p>',
-        fecha: '<p>28-Agosto-2019</p>',
-        descripcion: '<p>Sistema de informes de tramos carreteros para el monitoreo de avances tantos físicos como financieros de la obra, por medio de la generación de reportes.</p>',
-        direccion: 'https://cordina.com.mx/banobras/login',
-        menu: '<ul><li><span class="lista_dia">Generar informes:</span> en esta opción se pueden levantar los informes que serán llenados por los ingenieros que se encuentren en obra, para reportar el avance carretero.</li><li><span class="lista_dia">Reportes:</span> despues de una serie de informes recopilados, es posible generar un reporte, el cual entrega una gráfica con los avances físicos y financieros tanto teórico como práctico de los avances carreteros .</li><li><span class="lista_dia">Usuario:</span> solo a los administradores les da las opciones para gestionar los contratos, superviciones, larguillos, presupuestos fuerza laboral, catálogos y usuarios del sistemas.</li></ul>',
-        modulo_a: '<p>Como módulo de muestra describiremos el modulo de "Administracion". Ya que conglomera todas las opciones vitales para poder calcular los avances carreteros mediante el alta de cnotratos y superviciones para programarles determinada fuerza laboral y presupuestos. Los cuales se graficarán para visualizas las curvas de los valores teóricos contra los practicos y recabar la información necesaria para la toma de desiciones.</p><p>.</p>'
+        sistema: '',
+        frontend: '',
+        backend: '',
+        base: '',
+        responsabilidad: '',
+        tareas: '',
+        tiempo: '',
+        inicio: '',
+        descripcion: '',
+        direccion: '',
+        menu: '',
+        modulo_a: '',
+        url_img: ''
       }],
       dfreelance: false,
       length: 4,
@@ -2223,7 +2225,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    closeDF: function closeDF() {
+    openDialog: function openDialog(id) {
+      var _this = this;
+
+      var url = 'sistemas/' + id;
+      axios.get(url).then(function (res) {
+        if (res.data.length == 1) {
+          _this.infoSys = res.data;
+          _this.dfreelance = true;
+        } else {
+          alert("Error");
+        }
+      })["catch"](function (error) {
+        alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+      });
+    },
+    closeDialog: function closeDialog() {
       this.window = 0;
       this.dfreelance = false;
     }
@@ -2468,15 +2485,21 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       infoSys: [{
-        frontend: 'HTML5, CSS3, JS, VueJS, Vue Material',
-        backend: 'PHP - Laravel',
-        base: 'MySQL',
-        fecha: '<p>02-Julio-2018</p>',
-        descripcion: '<p>Directorio de los sitios y sistemas institucionales. agrupados mediante los pilares organizaciones.<br>Contiene módulos de administración de usuarios, roles y catálogos.</p>',
-        direccion: 'https://miespaciolaureate.com/intranet/login',
-        menu: '<ul><li><span class="lista_dia">User:</span> contiene las opciones de ver perfil, el cual es una ventana modal con toda la información del este. Y la opción de cerrar sesión</li><li><span class="lista_dia">Admin:</span> opción solo disponible para administradores del sistema, el cual contiene las secciones para el control de "Usuario", "Catálogos" y "Contactos".</li><li><span class="lista_dia">ADN:</span> primer pilar organizacional dedicado a explicar quienes somos y que buscamos como empresa. Junto con todos los sistemas que tengan que ver con estos temas.</li><li><span class="lista_dia">Talento:</span> segundo pilar organizacional especializado unicamente en el desarrollo y objetivos del personal de la empresa </li><li><span class="lista_dia">Bienestar:</span> tercer pilar organizacional el cual contiene toda la informacion de las recompensas, prestaciones y beneficios del colaborador</li><li><span class="lista_dia">Capacitación:</span> cuarto pilar organizacional dedicado exclisivamente a la capacitación de los colaboradores</li><li><span class="lista_dia">Atracción:</span> pilar organizacional encargado de reclutar a los nuvos colaboradores basandonose en los principios de la empresa "Here for good"</li></ul>',
-        modulo_a: '<p>Como módulo de muestra describiremos el modulo de "Usuarios".</p><p>Este módulo esta conformado por .</p>',
-        modulo_b: '<p>Una vez que se ha agregado un nuevo colaborar, es posible editar su información básica y su respectivo rol, ya que un usuario puede tener o no permisos para interactuar con ciertos sistemas, dependiendo del proposito o la acción que este autorizado a realizar dentro de la institución.</p><p>En el caso puntal del sistema de "Intranet", todos los usuarios pertenecientes al directorio de México tienen automáticamente acceso al sistema.</p>'
+        sistema: '',
+        backend: '',
+        base: '',
+        descripcion: '',
+        direccion: '',
+        frontend: '',
+        inicio: '',
+        menu: '',
+        modulo_a: '',
+        modulo_b: '',
+        url_img: '',
+        url_img1: '',
+        url_img2: '',
+        url_img3: '',
+        url_img4: ''
       }],
       dlaboral: false,
       length: 5,
@@ -2484,7 +2507,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    closeDL: function closeDL() {
+    openDialog: function openDialog(id) {
+      var _this = this;
+
+      var url = 'sistemas/' + id;
+      axios.get(url).then(function (res) {
+        if (res.data.length == 1) {
+          _this.infoSys = res.data;
+          _this.dlaboral = true;
+        } else {
+          alert("Error");
+        }
+      })["catch"](function (error) {
+        alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+      });
+    },
+    closeDialog: function closeDialog() {
       this.window = 0;
       this.dlaboral = false;
     }
@@ -2626,15 +2664,17 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       infoSys: [{
-        frontend: 'HTML5, CSS3, JS, Material CSS',
-        backend: 'PHP - CodeIgniter',
-        base: 'MySQL',
-        responsabilidades: '<p>Diseño y desarrollo del frontend, backend, base de datos, junto con el despliegue en el servidor.</p>',
-        tareas: '<p>Todos los módulos</p>',
-        tiempo: '<p>Toda la duración del proyecto</p>',
-        fecha: '<p>28-Agosto-2019</p>',
-        descripcion: '<p>Sistema de información para los ciclos de ponencia de ingeniería ambiental. Proporcionando las bases para dicha convocatoria.</p>',
-        direccion: 'http://cimca.ingenieria.unam.mx/'
+        sistema: '',
+        frontend: '',
+        backend: '',
+        base: '',
+        responsabilidad: '',
+        tareas: '',
+        tiempo: '',
+        inicio: '',
+        descripcion: '',
+        direccion: '',
+        url_img: ''
       }],
       duni: false,
       length: 2,
@@ -2642,7 +2682,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    closeDU: function closeDU() {
+    openDialog: function openDialog(id) {
+      var _this = this;
+
+      var url = 'sistemas/' + id;
+      axios.get(url).then(function (res) {
+        if (res.data.length == 1) {
+          _this.infoSys = res.data;
+          _this.duni = true;
+        } else {
+          alert("Error");
+        }
+      })["catch"](function (error) {
+        alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+      });
+    },
+    closeDialog: function closeDialog() {
       this.window = 0;
       this.duni = false;
     }
@@ -2777,15 +2832,18 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       infoSys: [{
-        frontend: 'HTML5, CSS3, JS, Vue JS, Element IO',
-        backend: 'PHP - Laravel',
-        base: 'MySQL',
-        responsabilidades: '<p>Diseño y desarrollo del frontend, backend, base de datos, junto con el despliegue en el servidor.</p>',
-        tareas: '<p>Todos los módulos</p>',
-        tiempo: '<p>Toda la duración del proyecto</p>',
-        fecha: '<p>28-Agosto-2019</p>',
-        descripcion: '<p>Sistema de información para los ciclos de ponencia de ingeniería ambiental. Proporcionando las bases para dicha convocatoria.</p>',
-        direccion: 'SIN DIRECCIÓN ASIGNADA'
+        sistema: '',
+        frontend: '',
+        backend: '',
+        base: '',
+        responsabilidad: '',
+        tareas: '',
+        tiempo: '',
+        inicio: '',
+        descripcion: '',
+        objetivos: '',
+        direccion: '',
+        url_img: ''
       }],
       ddep: false,
       length: 2,
@@ -2793,7 +2851,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    closeDD: function closeDD() {
+    openDialog: function openDialog(id) {
+      var _this = this;
+
+      var url = 'sistemas/' + id;
+      axios.get(url).then(function (res) {
+        if (res.data.length == 1) {
+          _this.infoSys = res.data;
+          _this.ddep = true;
+        } else {
+          alert("Error");
+        }
+      })["catch"](function (error) {
+        alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+      });
+    },
+    closeDialog: function closeDialog() {
       this.window = 0;
       this.ddep = false;
     }
@@ -3637,19 +3710,7 @@ __webpack_require__.r(__webpack_exports__);
       image: 'http://localhost/gcc_site/public/img/menu/port.png',
       title: 'Portafolio',
       //CARGA
-      laboral: [
-        /*
-          {img: 'http://localhost/gcc_site/public/img/sistemas/intranet.png', empresa: 'Laureate International Universities', sistema: 'Intranet'},
-          {img: 'http://localhost/gcc_site/public/img/sistemas/laureate_atc.png', empresa: 'Laureate International Universities', sistema: 'Laureate ATC'},
-          {img: 'http://localhost/gcc_site/public/img/sistemas/stps.png', empresa: 'Laureate International Universities', sistema: 'STPS'},
-          {img: 'http://localhost/gcc_site/public/img/sistemas/rewards.png', empresa: 'Laureate International Universities', sistema: 'Rewards'},
-          {img: 'http://localhost/gcc_site/public/img/sistemas/medico_online.png', empresa: 'Laureate International Universities', sistema: 'Medico Online'},
-          {img: 'http://localhost/gcc_site/public/img/sistemas/reco.png', empresa: 'Laureate International Universities', sistema: 'Reconocimiento'},  
-          {img: 'http://localhost/gcc_site/public/img/sistemas/path.png', empresa: 'Laureate International Universities', sistema: 'Tutoriales PATH'},
-          {img: 'http://localhost/gcc_site/public/img/sistemas/vc.png', empresa: 'Laureate International Universities', sistema: 'Ventas Comercial'},
-          {img: 'http://localhost/gcc_site/public/img/sistemas/edc.png', empresa: 'Laureate International Universities', sistema: 'Estado de Cuenta'},
-          */
-      ],
+      laboral: [],
       freelance: [],
       universidad: [],
       desarrollo: []
@@ -22524,7 +22585,7 @@ var render = function() {
               staticClass: "epc_sistema",
               on: {
                 click: function($event) {
-                  _vm.dfreelance = true
+                  return _vm.openDialog(item.id_sis)
                 }
               }
             },
@@ -22569,1963 +22630,8 @@ var render = function() {
             "v-card",
             [
               _c("v-card-title", { staticClass: "headline" }, [
-                _c("span", { staticClass: "title_dia" }, [_vm._v("Banobras")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "v-card-text",
-                [
-                  _c(
-                    "v-row",
-                    { attrs: { align: "center" } },
-                    [
-                      _c(
-                        "v-item-group",
-                        {
-                          staticClass: "shrink",
-                          attrs: { mandatory: "", tag: "v-flex" },
-                          model: {
-                            value: _vm.window,
-                            callback: function($$v) {
-                              _vm.window = $$v
-                            },
-                            expression: "window"
-                          }
-                        },
-                        _vm._l(_vm.length, function(n) {
-                          return _c("v-item", {
-                            key: n,
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function(ref) {
-                                    var active = ref.active
-                                    var toggle = ref.toggle
-                                    return [
-                                      _c(
-                                        "div",
-                                        [
-                                          _c(
-                                            "v-btn",
-                                            {
-                                              attrs: {
-                                                icon: "",
-                                                "input-value": active
-                                              },
-                                              on: { click: toggle }
-                                            },
-                                            [
-                                              _c("v-icon", [
-                                                _vm._v("mdi-record")
-                                              ])
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  }
-                                }
-                              ],
-                              null,
-                              true
-                            )
-                          })
-                        }),
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        [
-                          _c(
-                            "v-window",
-                            {
-                              model: {
-                                value: _vm.window,
-                                callback: function($$v) {
-                                  _vm.window = $$v
-                                },
-                                expression: "window"
-                              }
-                            },
-                            [
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [_vm._v("Tecnología")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", [
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Frontend")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0]
-                                                            .frontend
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Backend")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0].backend
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Base de datos")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0].base
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                )
-                                              ])
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/banobras.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c(
-                                          "div",
-                                          { staticClass: "contf_dia" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "infofp_dia" },
-                                              [
-                                                _c(
-                                                  "v-row",
-                                                  {
-                                                    staticClass: "mb-4",
-                                                    attrs: { align: "center" }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "subtitle_dia"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "Datos del proyecto"
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("v-spacer")
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c("div", [
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Responsabilidades"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0]
-                                                          .responsabilidades
-                                                      )
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Módulos o tareas desarrolladas"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0].tareas
-                                                      )
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Tiempo de participación"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0].tiempo
-                                                      )
-                                                    }
-                                                  })
-                                                ])
-                                              ],
-                                              1
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "infofs_dia" },
-                                              [
-                                                _c(
-                                                  "v-row",
-                                                  {
-                                                    staticClass: "mb-4",
-                                                    attrs: { align: "center" }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "subtitle_dia"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "Datos del sistema"
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("v-spacer")
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c("div", [
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Fecha de desarrollo"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0].fecha
-                                                      )
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [_vm._v("Dirección")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "cinfo" },
-                                                    [
-                                                      _c("p", [
-                                                        _c(
-                                                          "a",
-                                                          {
-                                                            attrs: {
-                                                              id: "link_dia",
-                                                              href:
-                                                                _vm.infoSys[0]
-                                                                  .direccion
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                _vm.infoSys[0]
-                                                                  .direccion
-                                                              )
-                                                            )
-                                                          ]
-                                                        )
-                                                      ])
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [_vm._v("Descripción")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0]
-                                                          .descripcion
-                                                      )
-                                                    }
-                                                  })
-                                                ])
-                                              ],
-                                              1
-                                            )
-                                          ]
-                                        )
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [_vm._v("Menú")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "cinfo",
-                                                domProps: {
-                                                  innerHTML: _vm._s(
-                                                    _vm.infoSys[0].menu
-                                                  )
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/banobras1.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [_vm._v("Modulo Muestra")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "cinfo",
-                                                domProps: {
-                                                  innerHTML: _vm._s(
-                                                    _vm.infoSys[0].modulo_a
-                                                  )
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/banobras2.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-actions",
-                { attrs: { id: "card_buttons" } },
-                [
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "#eeb213", text: "" },
-                      on: { click: _vm.closeDF }
-                    },
-                    [_vm._v("Cerrar")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HeaderCard.vue?vue&type=template&id=343aed30&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HeaderCard.vue?vue&type=template&id=343aed30&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "HeaderCard" } },
-    [
-      _c(
-        "v-list-item",
-        [
-          _c(
-            "v-list-item-avatar",
-            { attrs: { id: "card_avatar", color: "white" } },
-            [_c("img", { attrs: { src: _vm.imageComp } })]
-          ),
-          _vm._v(" "),
-          _c("h2", { staticClass: "card_title", attrs: { id: "h2" } }, [
-            _vm._v(_vm._s(_vm.titleComp))
-          ])
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HexaGrid.vue?vue&type=template&id=80808712&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HexaGrid.vue?vue&type=template&id=80808712& ***!
-  \***********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "HexaGrid" } }, [
-    _c("h3", { attrs: { id: "h3" } }, [
-      _c("strong", [_vm._v(_vm._s(_vm.titleComp))])
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "mt-4" }, [
-      _c(
-        "ul",
-        { attrs: { id: "hexGrid" } },
-        _vm._l(_vm.listComp, function(item, key) {
-          return _c("li", { staticClass: "hex" }, [
-            _c("div", { staticClass: "hexIn" }, [
-              _c("a", { staticClass: "hexLink", attrs: { href: "#" } }, [
-                _c("img", { attrs: { src: item.img } }),
-                _vm._v(" "),
-                _c("h4", { attrs: { id: "h4" } }, [_vm._v(_vm._s(key + 1))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(item.title))])
-              ])
-            ])
-          ])
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Laboral.vue?vue&type=template&id=3ec7c440&":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Laboral.vue?vue&type=template&id=3ec7c440& ***!
-  \**********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "Laboral" } },
-    [
-      _c(
-        "div",
-        { staticClass: "epc_sistemas" },
-        _vm._l(_vm.entSys, function(item, key) {
-          return _c(
-            "div",
-            {
-              staticClass: "epc_sistema",
-              on: {
-                click: function($event) {
-                  _vm.dlaboral = true
-                }
-              }
-            },
-            [
-              _c("img", {
-                staticClass: "isistema",
-                attrs: { src: item.img, alt: "" }
-              }),
-              _vm._v(" "),
-              _c("span", { attrs: { id: "h4" } }, [
-                _c("strong", [_vm._v("Empresa:")]),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.empresa))])
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", { attrs: { id: "h4" } }, [
-                _c("strong", [_vm._v("Sistema:")]),
-                _vm._v(" " + _vm._s(item.sistema) + "\n      ")
-              ])
-            ]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "v-dialog",
-        {
-          attrs: { width: "90%", persistent: "", dark: "" },
-          model: {
-            value: _vm.dlaboral,
-            callback: function($$v) {
-              _vm.dlaboral = $$v
-            },
-            expression: "dlaboral"
-          }
-        },
-        [
-          _c(
-            "v-card",
-            [
-              _c("v-card-title", { staticClass: "headline" }, [
-                _c("span", { staticClass: "title_dia" }, [_vm._v("Intranet")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "v-card-text",
-                [
-                  _c(
-                    "v-row",
-                    { attrs: { align: "center" } },
-                    [
-                      _c(
-                        "v-item-group",
-                        {
-                          staticClass: "shrink",
-                          attrs: { mandatory: "", tag: "v-flex" },
-                          model: {
-                            value: _vm.window,
-                            callback: function($$v) {
-                              _vm.window = $$v
-                            },
-                            expression: "window"
-                          }
-                        },
-                        _vm._l(_vm.length, function(n) {
-                          return _c("v-item", {
-                            key: n,
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function(ref) {
-                                    var active = ref.active
-                                    var toggle = ref.toggle
-                                    return [
-                                      _c(
-                                        "div",
-                                        [
-                                          _c(
-                                            "v-btn",
-                                            {
-                                              attrs: {
-                                                icon: "",
-                                                "input-value": active
-                                              },
-                                              on: { click: toggle }
-                                            },
-                                            [
-                                              _c("v-icon", [
-                                                _vm._v("mdi-record")
-                                              ])
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  }
-                                }
-                              ],
-                              null,
-                              true
-                            )
-                          })
-                        }),
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        [
-                          _c(
-                            "v-window",
-                            {
-                              model: {
-                                value: _vm.window,
-                                callback: function($$v) {
-                                  _vm.window = $$v
-                                },
-                                expression: "window"
-                              }
-                            },
-                            [
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [_vm._v("Tecnología")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", [
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Frontend")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0]
-                                                            .frontend
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Backend")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0].backend
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Base de datos")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0].base
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                )
-                                              ])
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/intranet.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "Ficha del sistema"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", [
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [
-                                                    _vm._v(
-                                                      "Fecha de desarrollo"
-                                                    )
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("div", {
-                                                  staticClass: "cinfo",
-                                                  domProps: {
-                                                    innerHTML: _vm._s(
-                                                      _vm.infoSys[0].fecha
-                                                    )
-                                                  }
-                                                }),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Dirección")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _c(
-                                                        "a",
-                                                        {
-                                                          attrs: {
-                                                            id: "link_dia",
-                                                            href:
-                                                              _vm.infoSys[0]
-                                                                .direccion
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              _vm.infoSys[0]
-                                                                .direccion
-                                                            )
-                                                          )
-                                                        ]
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Descripción")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("div", {
-                                                  staticClass: "cinfo",
-                                                  domProps: {
-                                                    innerHTML: _vm._s(
-                                                      _vm.infoSys[0].descripcion
-                                                    )
-                                                  }
-                                                })
-                                              ])
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/intranet1.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [_vm._v("Menú")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "cinfo",
-                                                domProps: {
-                                                  innerHTML: _vm._s(
-                                                    _vm.infoSys[0].menu
-                                                  )
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/intranet2.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [_vm._v("Modulo Muestra")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", {
-                                                staticClass: "cinfo",
-                                                domProps: {
-                                                  innerHTML: _vm._s(
-                                                    _vm.infoSys[0].modulo_a
-                                                  )
-                                                }
-                                              })
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/intranet3.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c("div", {
-                                                staticClass: "cinfo",
-                                                domProps: {
-                                                  innerHTML: _vm._s(
-                                                    _vm.infoSys[0].modulo_b
-                                                  )
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/intranet4.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-actions",
-                { attrs: { id: "card_buttons" } },
-                [
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "#eeb213", text: "" },
-                      on: { click: _vm.closeDL }
-                    },
-                    [_vm._v("Cerrar")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Universidad.vue?vue&type=template&id=7af5a483&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Universidad.vue?vue&type=template&id=7af5a483& ***!
-  \**************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "Universidad" } },
-    [
-      _c(
-        "div",
-        { staticClass: "epc_sistemas" },
-        _vm._l(_vm.entSys, function(item, key) {
-          return _c(
-            "div",
-            {
-              staticClass: "epc_sistema",
-              on: {
-                click: function($event) {
-                  _vm.duni = true
-                }
-              }
-            },
-            [
-              _c("img", {
-                staticClass: "isistema",
-                attrs: { src: item.img, alt: "" }
-              }),
-              _vm._v(" "),
-              _c("span", { attrs: { id: "h4" } }, [
-                _c("strong", [_vm._v("Institución:")]),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.empresa))])
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", { attrs: { id: "h4" } }, [
-                _c("strong", [_vm._v("Sistema:")]),
-                _vm._v(" " + _vm._s(item.sistema) + "\n      ")
-              ])
-            ]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "v-dialog",
-        {
-          attrs: { width: "90%", persistent: "", dark: "" },
-          model: {
-            value: _vm.duni,
-            callback: function($$v) {
-              _vm.duni = $$v
-            },
-            expression: "duni"
-          }
-        },
-        [
-          _c(
-            "v-card",
-            [
-              _c("v-card-title", { staticClass: "headline" }, [
-                _c("span", { staticClass: "title_dia" }, [_vm._v("CIMCA")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "v-card-text",
-                [
-                  _c(
-                    "v-row",
-                    { attrs: { align: "center" } },
-                    [
-                      _c(
-                        "v-item-group",
-                        {
-                          staticClass: "shrink",
-                          attrs: { mandatory: "", tag: "v-flex" },
-                          model: {
-                            value: _vm.window,
-                            callback: function($$v) {
-                              _vm.window = $$v
-                            },
-                            expression: "window"
-                          }
-                        },
-                        _vm._l(_vm.length, function(n) {
-                          return _c("v-item", {
-                            key: n,
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function(ref) {
-                                    var active = ref.active
-                                    var toggle = ref.toggle
-                                    return [
-                                      _c(
-                                        "div",
-                                        [
-                                          _c(
-                                            "v-btn",
-                                            {
-                                              attrs: {
-                                                icon: "",
-                                                "input-value": active
-                                              },
-                                              on: { click: toggle }
-                                            },
-                                            [
-                                              _c("v-icon", [
-                                                _vm._v("mdi-record")
-                                              ])
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  }
-                                }
-                              ],
-                              null,
-                              true
-                            )
-                          })
-                        }),
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        [
-                          _c(
-                            "v-window",
-                            {
-                              model: {
-                                value: _vm.window,
-                                callback: function($$v) {
-                                  _vm.window = $$v
-                                },
-                                expression: "window"
-                              }
-                            },
-                            [
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c("div", { staticClass: "cont_dia" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "info_dia" },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                {
-                                                  staticClass: "mb-4",
-                                                  attrs: { align: "center" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "span",
-                                                    {
-                                                      staticClass:
-                                                        "subtitle_dia"
-                                                    },
-                                                    [_vm._v("Tecnología")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("v-spacer")
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c("div", [
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Frontend")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0]
-                                                            .frontend
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Backend")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0].backend
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "h4",
-                                                  { attrs: { id: "h4" } },
-                                                  [_vm._v("Base de datos")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "cinfo" },
-                                                  [
-                                                    _c("p", [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.infoSys[0].base
-                                                        )
-                                                      )
-                                                    ])
-                                                  ]
-                                                )
-                                              ])
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "img_dia" },
-                                            [
-                                              _c("img", {
-                                                staticClass: "ip_dia",
-                                                attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/cimca.png",
-                                                  alt: ""
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                [
-                                  _c(
-                                    "v-card",
-                                    { attrs: { flat: "" } },
-                                    [
-                                      _c("v-card-text", [
-                                        _c(
-                                          "div",
-                                          { staticClass: "contu_dia" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "infoup_dia" },
-                                              [
-                                                _c(
-                                                  "v-row",
-                                                  {
-                                                    staticClass: "mb-4",
-                                                    attrs: { align: "center" }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "subtitle_dia"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "Datos del proyecto"
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("v-spacer")
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c("div", [
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Responsabilidades"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0]
-                                                          .responsabilidades
-                                                      )
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Módulos o tareas desarrolladas"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0].tareas
-                                                      )
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Tiempo de participación"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0].tiempo
-                                                      )
-                                                    }
-                                                  })
-                                                ])
-                                              ],
-                                              1
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "infous_dia" },
-                                              [
-                                                _c(
-                                                  "v-row",
-                                                  {
-                                                    staticClass: "mb-4",
-                                                    attrs: { align: "center" }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "subtitle_dia"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "Datos del sistema"
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("v-spacer")
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c("div", [
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [
-                                                      _vm._v(
-                                                        "Fecha de desarrollo"
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0].fecha
-                                                      )
-                                                    }
-                                                  }),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [_vm._v("Dirección")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "cinfo" },
-                                                    [
-                                                      _c("p", [
-                                                        _c(
-                                                          "a",
-                                                          {
-                                                            attrs: {
-                                                              id: "link_dia",
-                                                              href:
-                                                                _vm.infoSys[0]
-                                                                  .direccion
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                _vm.infoSys[0]
-                                                                  .direccion
-                                                              )
-                                                            )
-                                                          ]
-                                                        )
-                                                      ])
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "h4",
-                                                    { attrs: { id: "h4" } },
-                                                    [_vm._v("Descripción")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", {
-                                                    staticClass: "cinfo",
-                                                    domProps: {
-                                                      innerHTML: _vm._s(
-                                                        _vm.infoSys[0]
-                                                          .descripcion
-                                                      )
-                                                    }
-                                                  })
-                                                ])
-                                              ],
-                                              1
-                                            )
-                                          ]
-                                        )
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-actions",
-                { attrs: { id: "card_buttons" } },
-                [
-                  _c(
-                    "v-btn",
-                    {
-                      attrs: { color: "#eeb213", text: "" },
-                      on: { click: _vm.closeDU }
-                    },
-                    [_vm._v("Cerrar")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/desarrollo.vue?vue&type=template&id=36b5e28c&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/desarrollo.vue?vue&type=template&id=36b5e28c& ***!
-  \*************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "Desarrollo" } },
-    [
-      _c(
-        "div",
-        { staticClass: "epc_sistemas" },
-        _vm._l(_vm.entSys, function(item, key) {
-          return _c(
-            "div",
-            {
-              staticClass: "epc_sistema",
-              on: {
-                click: function($event) {
-                  _vm.ddep = true
-                }
-              }
-            },
-            [
-              _c("img", {
-                staticClass: "isistema",
-                attrs: { src: item.img, alt: "" }
-              }),
-              _vm._v(" "),
-              _c("span", { attrs: { id: "h4" } }, [
-                _c("strong", [_vm._v("Empresa o Institución:")]),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.empresa))])
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("span", { attrs: { id: "h4" } }, [
-                _c("strong", [_vm._v("Sistema:")]),
-                _vm._v(" " + _vm._s(item.sistema) + "\n      ")
-              ])
-            ]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "v-dialog",
-        {
-          attrs: { width: "90%", persistent: "", dark: "" },
-          model: {
-            value: _vm.ddep,
-            callback: function($$v) {
-              _vm.ddep = $$v
-            },
-            expression: "ddep"
-          }
-        },
-        [
-          _c(
-            "v-card",
-            [
-              _c("v-card-title", { staticClass: "headline" }, [
                 _c("span", { staticClass: "title_dia" }, [
-                  _vm._v("Comunicados Laureate")
+                  _vm._v(_vm._s(_vm.infoSys[0].sistema))
                 ])
               ]),
               _vm._v(" "),
@@ -24716,8 +22822,1418 @@ var render = function() {
                                               _c("img", {
                                                 staticClass: "ip_dia",
                                                 attrs: {
-                                                  src:
-                                                    "http://localhost/gcc_site/public/img/sistemas/comunicados.png",
+                                                  src: _vm.infoSys[0].url_img,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c(
+                                          "div",
+                                          { staticClass: "contf_dia" },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "infofp_dia" },
+                                              [
+                                                _c(
+                                                  "v-row",
+                                                  {
+                                                    staticClass: "mb-4",
+                                                    attrs: { align: "center" }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "subtitle_dia"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "Datos del proyecto"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("v-spacer")
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c("div", [
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Responsabilidades"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0]
+                                                          .responsabilidad
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Módulos o tareas desarrolladas"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0].tareas
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Tiempo de participación"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0].tiempo
+                                                      )
+                                                    }
+                                                  })
+                                                ])
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "infofs_dia" },
+                                              [
+                                                _c(
+                                                  "v-row",
+                                                  {
+                                                    staticClass: "mb-4",
+                                                    attrs: { align: "center" }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "subtitle_dia"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "Datos del sistema"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("v-spacer")
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c("div", [
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Fecha de desarrollo"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0].inicio
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [_vm._v("Dirección")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "cinfo" },
+                                                    [
+                                                      _c("p", [
+                                                        _c(
+                                                          "a",
+                                                          {
+                                                            attrs: {
+                                                              id: "link_dia",
+                                                              href:
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      ])
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [_vm._v("Descripción")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0]
+                                                          .descripcion
+                                                      )
+                                                    }
+                                                  })
+                                                ])
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [_vm._v("Menú")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", {
+                                                staticClass: "cinfo",
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.infoSys[0].menu
+                                                  )
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img1,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [_vm._v("Modulo Muestra")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", {
+                                                staticClass: "cinfo",
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.infoSys[0].modulo_a
+                                                  )
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img2,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                { attrs: { id: "card_buttons" } },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "#eeb213", text: "" },
+                      on: { click: _vm.closeDialog }
+                    },
+                    [_vm._v("Cerrar")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HeaderCard.vue?vue&type=template&id=343aed30&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HeaderCard.vue?vue&type=template&id=343aed30&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "HeaderCard" } },
+    [
+      _c(
+        "v-list-item",
+        [
+          _c(
+            "v-list-item-avatar",
+            { attrs: { id: "card_avatar", color: "white" } },
+            [_c("img", { attrs: { src: _vm.imageComp } })]
+          ),
+          _vm._v(" "),
+          _c("h2", { staticClass: "card_title", attrs: { id: "h2" } }, [
+            _vm._v(_vm._s(_vm.titleComp))
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HexaGrid.vue?vue&type=template&id=80808712&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HexaGrid.vue?vue&type=template&id=80808712& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "HexaGrid" } }, [
+    _c("h3", { attrs: { id: "h3" } }, [
+      _c("strong", [_vm._v(_vm._s(_vm.titleComp))])
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "mt-4" }, [
+      _c(
+        "ul",
+        { attrs: { id: "hexGrid" } },
+        _vm._l(_vm.listComp, function(item, key) {
+          return _c("li", { staticClass: "hex" }, [
+            _c("div", { staticClass: "hexIn" }, [
+              _c("a", { staticClass: "hexLink", attrs: { href: "#" } }, [
+                _c("img", { attrs: { src: item.img } }),
+                _vm._v(" "),
+                _c("h4", { attrs: { id: "h4" } }, [_vm._v(_vm._s(key + 1))]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(item.title))])
+              ])
+            ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Laboral.vue?vue&type=template&id=3ec7c440&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Laboral.vue?vue&type=template&id=3ec7c440& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "Laboral" } },
+    [
+      _c(
+        "div",
+        { staticClass: "epc_sistemas" },
+        _vm._l(_vm.entSys, function(item, key) {
+          return _c(
+            "div",
+            {
+              staticClass: "epc_sistema",
+              on: {
+                click: function($event) {
+                  return _vm.openDialog(item.id_sis)
+                }
+              }
+            },
+            [
+              _c("img", {
+                staticClass: "isistema",
+                attrs: { src: item.img, alt: "" }
+              }),
+              _vm._v(" "),
+              _c("span", { attrs: { id: "h4" } }, [
+                _c("strong", [_vm._v("Empresa:")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.empresa))])
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { attrs: { id: "h4" } }, [
+                _c("strong", [_vm._v("Sistema:")]),
+                _vm._v(" " + _vm._s(item.sistema) + "\n      ")
+              ])
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { width: "90%", persistent: "", dark: "" },
+          model: {
+            value: _vm.dlaboral,
+            callback: function($$v) {
+              _vm.dlaboral = $$v
+            },
+            expression: "dlaboral"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "headline" }, [
+                _c("span", { staticClass: "title_dia" }, [
+                  _vm._v(_vm._s(_vm.infoSys[0].sistema))
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { align: "center" } },
+                    [
+                      _c(
+                        "v-item-group",
+                        {
+                          staticClass: "shrink",
+                          attrs: { mandatory: "", tag: "v-flex" },
+                          model: {
+                            value: _vm.window,
+                            callback: function($$v) {
+                              _vm.window = $$v
+                            },
+                            expression: "window"
+                          }
+                        },
+                        _vm._l(_vm.length, function(n) {
+                          return _c("v-item", {
+                            key: n,
+                            scopedSlots: _vm._u(
+                              [
+                                {
+                                  key: "default",
+                                  fn: function(ref) {
+                                    var active = ref.active
+                                    var toggle = ref.toggle
+                                    return [
+                                      _c(
+                                        "div",
+                                        [
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                icon: "",
+                                                "input-value": active
+                                              },
+                                              on: { click: toggle }
+                                            },
+                                            [
+                                              _c("v-icon", [
+                                                _vm._v("mdi-record")
+                                              ])
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  }
+                                }
+                              ],
+                              null,
+                              true
+                            )
+                          })
+                        }),
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        [
+                          _c(
+                            "v-window",
+                            {
+                              model: {
+                                value: _vm.window,
+                                callback: function($$v) {
+                                  _vm.window = $$v
+                                },
+                                expression: "window"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [_vm._v("Tecnología")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", [
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Frontend")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0]
+                                                            .frontend
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Backend")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0].backend
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Base de datos")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0].base
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                )
+                                              ])
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "Ficha del sistema"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", [
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [
+                                                    _vm._v(
+                                                      "Fecha de desarrollo"
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("div", {
+                                                  staticClass: "cinfo",
+                                                  domProps: {
+                                                    innerHTML: _vm._s(
+                                                      _vm.infoSys[0].inicio
+                                                    )
+                                                  }
+                                                }),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Dirección")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _c(
+                                                        "a",
+                                                        {
+                                                          attrs: {
+                                                            id: "link_dia",
+                                                            href:
+                                                              _vm.infoSys[0]
+                                                                .direccion
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              _vm.infoSys[0]
+                                                                .direccion
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Descripción")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("div", {
+                                                  staticClass: "cinfo",
+                                                  domProps: {
+                                                    innerHTML: _vm._s(
+                                                      _vm.infoSys[0].descripcion
+                                                    )
+                                                  }
+                                                })
+                                              ])
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img1,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [_vm._v("Menú")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", {
+                                                staticClass: "cinfo",
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.infoSys[0].menu
+                                                  )
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img2,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [_vm._v("Modulo Muestra")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", {
+                                                staticClass: "cinfo",
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.infoSys[0].modulo_a
+                                                  )
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img3,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c("div", {
+                                                staticClass: "cinfo",
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    _vm.infoSys[0].modulo_b
+                                                  )
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img4,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                { attrs: { id: "card_buttons" } },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "#eeb213", text: "" },
+                      on: { click: _vm.closeDialog }
+                    },
+                    [_vm._v("Cerrar")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Universidad.vue?vue&type=template&id=7af5a483&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Universidad.vue?vue&type=template&id=7af5a483& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "Universidad" } },
+    [
+      _c(
+        "div",
+        { staticClass: "epc_sistemas" },
+        _vm._l(_vm.entSys, function(item, key) {
+          return _c(
+            "div",
+            {
+              staticClass: "epc_sistema",
+              on: {
+                click: function($event) {
+                  return _vm.openDialog(item.id_sis)
+                }
+              }
+            },
+            [
+              _c("img", {
+                staticClass: "isistema",
+                attrs: { src: item.img, alt: "" }
+              }),
+              _vm._v(" "),
+              _c("span", { attrs: { id: "h4" } }, [
+                _c("strong", [_vm._v("Institución:")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.empresa))])
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { attrs: { id: "h4" } }, [
+                _c("strong", [_vm._v("Sistema:")]),
+                _vm._v(" " + _vm._s(item.sistema) + "\n      ")
+              ])
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { width: "90%", persistent: "", dark: "" },
+          model: {
+            value: _vm.duni,
+            callback: function($$v) {
+              _vm.duni = $$v
+            },
+            expression: "duni"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "headline" }, [
+                _c("span", { staticClass: "title_dia" }, [
+                  _vm._v(_vm._s(_vm.infoSys[0].sistema))
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { align: "center" } },
+                    [
+                      _c(
+                        "v-item-group",
+                        {
+                          staticClass: "shrink",
+                          attrs: { mandatory: "", tag: "v-flex" },
+                          model: {
+                            value: _vm.window,
+                            callback: function($$v) {
+                              _vm.window = $$v
+                            },
+                            expression: "window"
+                          }
+                        },
+                        _vm._l(_vm.length, function(n) {
+                          return _c("v-item", {
+                            key: n,
+                            scopedSlots: _vm._u(
+                              [
+                                {
+                                  key: "default",
+                                  fn: function(ref) {
+                                    var active = ref.active
+                                    var toggle = ref.toggle
+                                    return [
+                                      _c(
+                                        "div",
+                                        [
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                icon: "",
+                                                "input-value": active
+                                              },
+                                              on: { click: toggle }
+                                            },
+                                            [
+                                              _c("v-icon", [
+                                                _vm._v("mdi-record")
+                                              ])
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  }
+                                }
+                              ],
+                              null,
+                              true
+                            )
+                          })
+                        }),
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        [
+                          _c(
+                            "v-window",
+                            {
+                              model: {
+                                value: _vm.window,
+                                callback: function($$v) {
+                                  _vm.window = $$v
+                                },
+                                expression: "window"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [_vm._v("Tecnología")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", [
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Frontend")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0]
+                                                            .frontend
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Backend")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0].backend
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Base de datos")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0].base
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                )
+                                              ])
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img,
                                                   alt: ""
                                                 }
                                               })
@@ -24789,7 +24305,548 @@ var render = function() {
                                                     domProps: {
                                                       innerHTML: _vm._s(
                                                         _vm.infoSys[0]
-                                                          .responsabilidades
+                                                          .responsabilidad
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Módulos o tareas desarrolladas"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0].tareas
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Tiempo de participación"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0].tiempo
+                                                      )
+                                                    }
+                                                  })
+                                                ])
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "infous_dia" },
+                                              [
+                                                _c(
+                                                  "v-row",
+                                                  {
+                                                    staticClass: "mb-4",
+                                                    attrs: { align: "center" }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "subtitle_dia"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "Datos del sistema"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("v-spacer")
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c("div", [
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Fecha de desarrollo"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0].inicio
+                                                      )
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [_vm._v("Dirección")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "cinfo" },
+                                                    [
+                                                      _c("p", [
+                                                        _c(
+                                                          "a",
+                                                          {
+                                                            attrs: {
+                                                              id: "link_dia",
+                                                              href:
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      ])
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [_vm._v("Descripción")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0]
+                                                          .descripcion
+                                                      )
+                                                    }
+                                                  })
+                                                ])
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                { attrs: { id: "card_buttons" } },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { color: "#eeb213", text: "" },
+                      on: { click: _vm.closeDialog }
+                    },
+                    [_vm._v("Cerrar")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/desarrollo.vue?vue&type=template&id=36b5e28c&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/desarrollo.vue?vue&type=template&id=36b5e28c& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "Desarrollo" } },
+    [
+      _c(
+        "div",
+        { staticClass: "epc_sistemas" },
+        _vm._l(_vm.entSys, function(item, key) {
+          return _c(
+            "div",
+            {
+              staticClass: "epc_sistema",
+              on: {
+                click: function($event) {
+                  return _vm.openDialog(item.id_sis)
+                }
+              }
+            },
+            [
+              _c("img", {
+                staticClass: "isistema",
+                attrs: { src: item.img, alt: "" }
+              }),
+              _vm._v(" "),
+              _c("span", { attrs: { id: "h4" } }, [
+                _c("strong", [_vm._v("Empresa o Institución:")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.empresa))])
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { attrs: { id: "h4" } }, [
+                _c("strong", [_vm._v("Sistema:")]),
+                _vm._v(" " + _vm._s(item.sistema) + "\n      ")
+              ])
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { width: "90%", persistent: "", dark: "" },
+          model: {
+            value: _vm.ddep,
+            callback: function($$v) {
+              _vm.ddep = $$v
+            },
+            expression: "ddep"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "headline" }, [
+                _c("span", { staticClass: "title_dia" }, [
+                  _vm._v(_vm._s(_vm.infoSys[0].sistema))
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { align: "center" } },
+                    [
+                      _c(
+                        "v-item-group",
+                        {
+                          staticClass: "shrink",
+                          attrs: { mandatory: "", tag: "v-flex" },
+                          model: {
+                            value: _vm.window,
+                            callback: function($$v) {
+                              _vm.window = $$v
+                            },
+                            expression: "window"
+                          }
+                        },
+                        _vm._l(_vm.length, function(n) {
+                          return _c("v-item", {
+                            key: n,
+                            scopedSlots: _vm._u(
+                              [
+                                {
+                                  key: "default",
+                                  fn: function(ref) {
+                                    var active = ref.active
+                                    var toggle = ref.toggle
+                                    return [
+                                      _c(
+                                        "div",
+                                        [
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                icon: "",
+                                                "input-value": active
+                                              },
+                                              on: { click: toggle }
+                                            },
+                                            [
+                                              _c("v-icon", [
+                                                _vm._v("mdi-record")
+                                              ])
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  }
+                                }
+                              ],
+                              null,
+                              true
+                            )
+                          })
+                        }),
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        [
+                          _c(
+                            "v-window",
+                            {
+                              model: {
+                                value: _vm.window,
+                                callback: function($$v) {
+                                  _vm.window = $$v
+                                },
+                                expression: "window"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c("div", { staticClass: "cont_dia" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "info_dia" },
+                                            [
+                                              _c(
+                                                "v-row",
+                                                {
+                                                  staticClass: "mb-4",
+                                                  attrs: { align: "center" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "subtitle_dia"
+                                                    },
+                                                    [_vm._v("Tecnología")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("v-spacer")
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("div", [
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Frontend")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0]
+                                                            .frontend
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Backend")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0].backend
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "h4",
+                                                  { attrs: { id: "h4" } },
+                                                  [_vm._v("Base de datos")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "cinfo" },
+                                                  [
+                                                    _c("p", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.infoSys[0].base
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]
+                                                )
+                                              ])
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "img_dia" },
+                                            [
+                                              _c("img", {
+                                                staticClass: "ip_dia",
+                                                attrs: {
+                                                  src: _vm.infoSys[0].url_img,
+                                                  alt: ""
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-window-item",
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { flat: "" } },
+                                    [
+                                      _c("v-card-text", [
+                                        _c(
+                                          "div",
+                                          { staticClass: "contu_dia" },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "infoup_dia" },
+                                              [
+                                                _c(
+                                                  "v-row",
+                                                  {
+                                                    staticClass: "mb-4",
+                                                    attrs: { align: "center" }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "subtitle_dia"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "Datos del proyecto"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("v-spacer")
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c("div", [
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Responsabilidades"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("div", {
+                                                    staticClass: "cinfo",
+                                                    domProps: {
+                                                      innerHTML: _vm._s(
+                                                        _vm.infoSys[0]
+                                                          .responsabilidad
                                                       )
                                                     }
                                                   }),
@@ -24872,8 +24929,7 @@ var render = function() {
                                                     staticClass: "cinfo",
                                                     domProps: {
                                                       innerHTML: _vm._s(
-                                                        _vm.infoSys[0]
-                                                          .descripcion
+                                                        _vm.infoSys[0].objetivos
                                                       )
                                                     }
                                                   }),
@@ -24927,7 +24983,7 @@ var render = function() {
                     "v-btn",
                     {
                       attrs: { color: "#eeb213", text: "" },
-                      on: { click: _vm.closeDD }
+                      on: { click: _vm.closeDialog }
                     },
                     [_vm._v("Cerrar")]
                   )

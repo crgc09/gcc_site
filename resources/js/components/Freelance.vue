@@ -1,7 +1,7 @@
 <template>
   <div id="Freelance">
     <div class="epc_sistemas">
-      <div class="epc_sistema" v-for="(item, key) in entSys" @click="dfreelance = true"> 
+      <div class="epc_sistema" v-for="(item, key) in entSys" @click="openDialog(item.id_sis)"> 
         <img :src="item.img" class="isistema" alt="">
         <span id="h4">
           <strong>Empresa o Institución:</strong> <span>{{item.empresa}}</span>
@@ -16,7 +16,7 @@
       <v-dialog v-model="dfreelance" width="100%" persistent dark>
         <v-card>
           <v-card-title class="headline">
-            <span class="title_dia">Banobras</span>
+            <span class="title_dia">{{infoSys[0].sistema}}</span>
           </v-card-title>
           <v-card-text>
             <v-row align="center">
@@ -57,7 +57,7 @@
                               </div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/banobras.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -75,7 +75,7 @@
                               </v-row>
                               <div>
                                 <h4 id="h4">Responsabilidades</h4>
-                                <div class="cinfo" v-html="infoSys[0].responsabilidades"></div>
+                                <div class="cinfo" v-html="infoSys[0].responsabilidad"></div>
                                 <h4 id="h4">Módulos o tareas desarrolladas</h4>
                                 <div class="cinfo" v-html="infoSys[0].tareas"></div>
                                 <h4 id="h4">Tiempo de participación</h4>
@@ -89,7 +89,7 @@
                               </v-row>
                               <div>
                                 <h4 id="h4">Fecha de desarrollo</h4>
-                                <div class="cinfo" v-html="infoSys[0].fecha"></div>
+                                <div class="cinfo" v-html="infoSys[0].inicio"></div>
                                 <h4 id="h4">Dirección</h4>
                                 <div class="cinfo" >
                                   <p>
@@ -117,7 +117,7 @@
                               <div class="cinfo" v-html="infoSys[0].menu"></div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/banobras1.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img1" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -136,7 +136,7 @@
                               <div class="cinfo" v-html="infoSys[0].modulo_a"></div>
                             </div>
                             <div class="img_dia">
-                              <img class="ip_dia" src="http://localhost/gcc_site/public/img/sistemas/banobras2.png" alt="">
+                              <img class="ip_dia" :src="infoSys[0].url_img2" alt="">
                             </div>
                           </div>
                         </v-card-text>
@@ -147,7 +147,7 @@
             </v-row>
           </v-card-text>
           <v-card-actions id="card_buttons">
-            <v-btn color="#eeb213" text @click="closeDF">Cerrar</v-btn>
+            <v-btn color="#eeb213" text @click="closeDialog">Cerrar</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -162,17 +162,19 @@
     data:()=>({
       infoSys: [
         {
-          frontend: 'HTML5, CSS3, JS, VueJS, BootstrapVue',
-          backend: 'PHP - Laravel',
-          base: 'MySQL',
-          responsabilidades: '<p>Diseño y desarrollo del frontend backend.</p>',
-          tareas: '<p>Todos los módulos</p>',
-          tiempo: '<p>Agosto a Octubre del 2019</p>',
-          fecha: '<p>28-Agosto-2019</p>',
-          descripcion: '<p>Sistema de informes de tramos carreteros para el monitoreo de avances tantos físicos como financieros de la obra, por medio de la generación de reportes.</p>',
-          direccion: 'https://cordina.com.mx/banobras/login',
-          menu: '<ul><li><span class="lista_dia">Generar informes:</span> en esta opción se pueden levantar los informes que serán llenados por los ingenieros que se encuentren en obra, para reportar el avance carretero.</li><li><span class="lista_dia">Reportes:</span> despues de una serie de informes recopilados, es posible generar un reporte, el cual entrega una gráfica con los avances físicos y financieros tanto teórico como práctico de los avances carreteros .</li><li><span class="lista_dia">Usuario:</span> solo a los administradores les da las opciones para gestionar los contratos, superviciones, larguillos, presupuestos fuerza laboral, catálogos y usuarios del sistemas.</li></ul>',
-          modulo_a: '<p>Como módulo de muestra describiremos el modulo de "Administracion". Ya que conglomera todas las opciones vitales para poder calcular los avances carreteros mediante el alta de cnotratos y superviciones para programarles determinada fuerza laboral y presupuestos. Los cuales se graficarán para visualizas las curvas de los valores teóricos contra los practicos y recabar la información necesaria para la toma de desiciones.</p><p>.</p>',
+          sistema: '',
+          frontend: '',
+          backend: '',
+          base: '',
+          responsabilidad: '',
+          tareas: '',
+          tiempo: '',
+          inicio: '',
+          descripcion: '',
+          direccion: '',
+          menu: '',
+          modulo_a: '',
+          url_img: ''
         },
       ],
       dfreelance: false,
@@ -180,7 +182,24 @@
       window: 0,
     }),
     methods: {
-      closeDF(){
+      openDialog(id){
+        let url='sistemas/'+id;
+        axios
+        .get(url)
+        .then((res) => {
+          if(res.data.length==1){
+            this.infoSys = res.data;
+            this.dfreelance = true;
+          }
+          else{
+            alert("Error");
+          }
+        })
+        .catch(error => {
+          alert("Ha ocurrido un error consultar el registro. Por favor intentalo más tarde.");
+        });
+      },
+      closeDialog(){
         this.window = 0;
         this.dfreelance = false;
       }
