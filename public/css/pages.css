@@ -1,7 +1,6 @@
 #vct-padding{
   padding: 4px 16px 16px 16px;
 }
-
 .card_title{
   margin: 0px;
   color: #eeb213;
@@ -161,6 +160,10 @@
   .fer{
     float: right;
   }
+/**/
+.noticeGeneral{
+  font-size: 16px;
+}
 /**/
 @media screen and (max-width: 1264px) {
   .card_stepper{

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class CatalogosController extends Controller
 {
+  protected $db_gcc;
+  //
   public function __construct()
   {
     $this->middleware('auth');

@@ -27,4 +27,6 @@ Route::get('/freelance', 'CatalogosController@freelance');
 Route::get('/universitario', 'CatalogosController@universitario');
 Route::get('/desarrollo', 'CatalogosController@desarrollo');
 //
+Route::post('/contacto','ContactoController@contacto');
+//
 Route::resource('/sistemas','SistemasController');

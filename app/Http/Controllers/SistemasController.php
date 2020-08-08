@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class SistemasController extends Controller
 {
+  protected $db_gcc;
+  //
   public function __construct()
   {
     $this->middleware('auth');

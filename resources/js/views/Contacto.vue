@@ -1,5 +1,22 @@
 <template>
   <div id="contacto">
+    <!--Notice-->
+      <v-snackbar
+        v-model="notice"
+        transition="scroll-y-reverse-transition"
+        :timeout="5000"
+        :color="colorEstatus"
+        absolute
+        centered
+        top
+      >
+        <span class="noticeGeneral" v-html="msgSB"></span>
+        <template v-slot:action="{ attrs }">
+          <v-btn icon dark text v-bind="attrs" @click="notice = false">
+            <v-icon>{{iconEstatus}}</v-icon>
+          </v-btn>
+        </template>
+      </v-snackbar>
     <v-card id="card" max-width="100%" class="mx-auto">
       <HeaderCard :image-comp="image" :title-comp="title"/>
       <!--Contacto content-->    
@@ -44,7 +61,7 @@
                   required
                 ></v-textarea>
                 <div class="mt-0 text-right">
-                  <v-btn color="#eeb213" outlined small @click="reset">Enviar</v-btn>
+                  <v-btn color="#eeb213" outlined small @click="send">Enviar</v-btn>
                   <v-btn color="#eeb213" outlined small @click="reset">Borrar</v-btn>  
                 </div>
               </v-form>
@@ -52,6 +69,15 @@
           </div>
         </div>  
       </v-card-text>
+      <!--Overly-->
+      <v-overlay :value="overlay">
+        <v-progress-circular
+          :size="70"
+          :width="7" 
+          indeterminate 
+          color="amber">
+        </v-progress-circular>
+      </v-overlay>
     </v-card>
   </div>
 </template>
@@ -66,9 +92,19 @@
       title: 'Contacto',
       msg: '<p>Muchas gracias por darte el tiempo necesario para visitar el sitio. Esto es una pequeña muestra de lo que me gusta hacer, espero te haya sido de tu agrado y ¿Por qué no?, quizas algún día podamos trabajar en un proyecto.</p><p>En la siguiente sección puedes enviarme un email para darme tu opinión o para estar en contacto. Me gustaría saber de ti, y no dudes en darte una vuelta en mis redes sociales.</p><p>Por favor llena los campos del formulario de manera correcta, ya que el campo de <strong>email</strong> tiene una validación de formato de una cuenta de correo electrónico, el campo de <strong>nombre</strong> solo letras mayúsculas, minúsculas, puntos, y espacios y el campos de <strong>comentarios</strong> admite texto algunos caracteres especiales ()</p>',
       valid: true,
+      overlay: false,
+      notice: false,
+      colorError: "#b71c1c",
+      colorSuccess: "#2e7d32",
+      colorEstatus: "primary",
+      iconError: "mdi-close-circle-outline",
+      iconSuccess: "mdi-check-circle-outline",
+      iconEstatus: "mdi-alert-circle-outline",
+      msgSB: '',
       name: '',
       nameRules: [
         v => !!v || 'El nombre es requerido',
+        v => (/^[A-Z áéíóúÁÉÍÓÚñÑ.]+$/i).test(v) || 'Solo se admiten letras con acentos y espacios',
         v => (v && v.length <= 50) || 'El tamaño maximo debe ser de 50 characteres',
       ],
       email: '',
@@ -80,16 +116,56 @@
       coment: '',
       comentRules: [
         v => !!v || 'Los comentarios son requeridos',
-        v => /.+@.+\..+/.test(v) || 'Formato invalido',
+        v => (/^[A-Z0-9 áéíóúÁÉÍÓÚñÑ@¿?()!¡;.]+$/i).test(v) || 'No se admiten caracteres especiales'
       ]
     }),
 
     methods: {
-      validate () {
-        this.$refs.form.validate()
+      send(){
+        this.overlay = true;
+        let er = ['nombre','email','comentarios']; 
+        let tmp='';
+        let url='contacto';
+        let form = {
+          nombre: this.name,
+          email: this.email,
+          comentarios: this.coment
+        }
+        //
+        axios
+          .post(url,form)
+          .then((res) => {
+            this.overlay = false;
+            if(res.data.estatus==1){
+              this.colorEstatus = this.colorSuccess;
+              this.iconEstatus = this.iconSuccess;
+              this.msgSB = res.data.msg;
+              this.notice = true;
+            }
+            else if(res.data.estatus==0){
+              for(var i=0; i<er.length; i++){
+                if(res.data.msg[er[i]] != undefined){
+                tmp += res.data.msg[er[i]]+'<br>';
+                }
+                this.colorEstatus = this.colorError;
+                this.iconEstatus = this.iconError;
+                this.msgSB = tmp;
+                this.notice = true;
+              }
+            }
+          })
+          .catch(error => {
+            this.overlay = false;
+            //
+            this.colorEstatus = this.colorError;
+            this.iconEstatus = this.iconError;
+            this.msgSB = "Ha ocurrido un error al intentar enviar el correo de contacto. Por favor intentalo más tarde.";
+            this.notice = true;
+          });
+        this.overlay = false;
       },
-      reset () {
-        this.$refs.form.reset()
+      reset(){
+        this.$refs.form.reset();
       },
     }
 

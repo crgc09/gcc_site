@@ -3060,6 +3060,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3071,9 +3097,20 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Contacto',
       msg: '<p>Muchas gracias por darte el tiempo necesario para visitar el sitio. Esto es una pequeña muestra de lo que me gusta hacer, espero te haya sido de tu agrado y ¿Por qué no?, quizas algún día podamos trabajar en un proyecto.</p><p>En la siguiente sección puedes enviarme un email para darme tu opinión o para estar en contacto. Me gustaría saber de ti, y no dudes en darte una vuelta en mis redes sociales.</p><p>Por favor llena los campos del formulario de manera correcta, ya que el campo de <strong>email</strong> tiene una validación de formato de una cuenta de correo electrónico, el campo de <strong>nombre</strong> solo letras mayúsculas, minúsculas, puntos, y espacios y el campos de <strong>comentarios</strong> admite texto algunos caracteres especiales ()</p>',
       valid: true,
+      overlay: false,
+      notice: false,
+      colorError: "#b71c1c",
+      colorSuccess: "#2e7d32",
+      colorEstatus: "primary",
+      iconError: "mdi-close-circle-outline",
+      iconSuccess: "mdi-check-circle-outline",
+      iconEstatus: "mdi-alert-circle-outline",
+      msgSB: '',
       name: '',
       nameRules: [function (v) {
         return !!v || 'El nombre es requerido';
+      }, function (v) {
+        return /^[A-Z áéíóúÁÉÍÓÚñÑ.]+$/i.test(v) || 'Solo se admiten letras con acentos y espacios';
       }, function (v) {
         return v && v.length <= 50 || 'El tamaño maximo debe ser de 50 characteres';
       }],
@@ -3089,13 +3126,53 @@ __webpack_require__.r(__webpack_exports__);
       comentRules: [function (v) {
         return !!v || 'Los comentarios son requeridos';
       }, function (v) {
-        return /.+@.+\..+/.test(v) || 'Formato invalido';
+        return /^[A-Z0-9 áéíóúÁÉÍÓÚñÑ@¿?()!¡;.]+$/i.test(v) || 'No se admiten caracteres especiales';
       }]
     };
   },
   methods: {
-    validate: function validate() {
-      this.$refs.form.validate();
+    send: function send() {
+      var _this = this;
+
+      this.overlay = true;
+      var er = ['nombre', 'email', 'comentarios'];
+      var tmp = '';
+      var url = 'contacto';
+      var form = {
+        nombre: this.name,
+        email: this.email,
+        comentarios: this.coment
+      }; //
+
+      axios.post(url, form).then(function (res) {
+        _this.overlay = false;
+
+        if (res.data.estatus == 1) {
+          _this.colorEstatus = _this.colorSuccess;
+          _this.iconEstatus = _this.iconSuccess;
+          _this.msgSB = res.data.msg;
+          _this.notice = true;
+        } else if (res.data.estatus == 0) {
+          for (var i = 0; i < er.length; i++) {
+            if (res.data.msg[er[i]] != undefined) {
+              tmp += res.data.msg[er[i]] + '<br>';
+            }
+
+            _this.colorEstatus = _this.colorError;
+            _this.iconEstatus = _this.iconError;
+            _this.msgSB = tmp;
+            _this.notice = true;
+          }
+        }
+      })["catch"](function (error) {
+        _this.overlay = false; //
+
+        _this.colorEstatus = _this.colorError;
+        _this.iconEstatus = _this.iconError;
+        _this.msgSB = "Ha ocurrido un error al intentar enviar el correo de contacto. Por favor intentalo más tarde.";
+        _this.notice = true;
+      });
+      this.overlay = false;
     },
     reset: function reset() {
       this.$refs.form.reset();
@@ -3597,7 +3674,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      opciones: [],
+      /*
+      opciones: [
+        {
+          opcion: '',
+          url: '',
+          img_1: '',
+          img_2: '',
+          descripcion: ''
+        }
+      ],
+      */
       image: 'http://localhost/gcc_site/public/img/menu/home.png',
       title: 'Home',
       intro: 'Visit ten places on our planet that are undergoing the biggest changes today.',
@@ -25177,6 +25264,61 @@ var render = function() {
     { attrs: { id: "contacto" } },
     [
       _c(
+        "v-snackbar",
+        {
+          attrs: {
+            transition: "scroll-y-reverse-transition",
+            timeout: 5000,
+            color: _vm.colorEstatus,
+            absolute: "",
+            centered: "",
+            top: ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "action",
+              fn: function(ref) {
+                var attrs = ref.attrs
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._b(
+                      {
+                        attrs: { icon: "", dark: "", text: "" },
+                        on: {
+                          click: function($event) {
+                            _vm.notice = false
+                          }
+                        }
+                      },
+                      "v-btn",
+                      attrs,
+                      false
+                    ),
+                    [_c("v-icon", [_vm._v(_vm._s(_vm.iconEstatus))])],
+                    1
+                  )
+                ]
+              }
+            }
+          ]),
+          model: {
+            value: _vm.notice,
+            callback: function($$v) {
+              _vm.notice = $$v
+            },
+            expression: "notice"
+          }
+        },
+        [
+          _c("span", {
+            staticClass: "noticeGeneral",
+            domProps: { innerHTML: _vm._s(_vm.msgSB) }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
         "v-card",
         { staticClass: "mx-auto", attrs: { id: "card", "max-width": "100%" } },
         [
@@ -25270,7 +25412,7 @@ var render = function() {
                                   outlined: "",
                                   small: ""
                                 },
-                                on: { click: _vm.reset }
+                                on: { click: _vm.send }
                               },
                               [_vm._v("Enviar")]
                             ),
@@ -25298,7 +25440,18 @@ var render = function() {
                 )
               ])
             ])
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "v-overlay",
+            { attrs: { value: _vm.overlay } },
+            [
+              _c("v-progress-circular", {
+                attrs: { size: 70, width: 7, indeterminate: "", color: "amber" }
+              })
+            ],
+            1
+          )
         ],
         1
       )

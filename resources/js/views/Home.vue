@@ -352,7 +352,17 @@
       HeaderCard
     },
     data:()=>({
-      opciones: [],
+      /*
+      opciones: [
+        {
+          opcion: '',
+          url: '',
+          img_1: '',
+          img_2: '',
+          descripcion: ''
+        }
+      ],
+      */
       image: 'http://localhost/gcc_site/public/img/menu/home.png',
       title: 'Home',
       intro: 'Visit ten places on our planet that are undergoing the biggest changes today.',
