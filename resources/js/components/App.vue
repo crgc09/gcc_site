@@ -12,6 +12,13 @@
               {{me.opcion}}
             </router-link>
           </li>
+          <!--
+            <li>
+              <router-link to="admin_demo">
+                Admin Demo
+              </router-link>
+            </li>
+          -->
         </ul>
       </v-navigation-drawer>
     <!--BARNAV-->
@@ -28,7 +35,12 @@
             </v-btn>
           </template>
           <v-list id="bar_session">
-            <v-list-item v-if="rol===1">
+            <v-list-item>
+              <v-btn text small block dark @click="profile = true">
+                {{user[0]['name']}}
+              </v-btn>
+            </v-list-item>
+            <v-list-item v-if="user[0]['rol']===1">
               <v-btn text small block dark :link="true" to="/gcc_site/admin">
                 Admin
               </v-btn>
@@ -97,23 +109,51 @@
           <span class="footer_text">©{{ new Date().getFullYear() }}</span>
         </v-col> 
       </v-footer>
+    <!--DIALOG-->
+    <v-dialog v-model="profile" persistent dark max-width="320">
+      <v-card>
+        <v-card-title class="headline">
+          <span class="title_dia">Perfil</span>
+        </v-card-title>
+        <v-card-text id="pd">
+          <p>Nombre: <strong>{{user[0]['name']}} {{user[0]['last_name']}}</strong></p>
+          <p>Email: <strong>{{user[0]['email']}}</strong></p>
+        </v-card-text>
+        <v-card-actions id="card_buttons">
+          <v-btn color="#eeb213" text @click="profile = false">Aceptar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 <script>
   export default {
     data: () => ({
+      user: [
+        {
+          name:'',
+          last_name:'',
+          emai:'',
+          rol:''
+        }
+      ],
       menu: [],
+      profile: false,
       drawer: null,
       fab: false,
       csrft: '',
-      rol: 1,
+      id: ''
     }),
     mounted(){
-      this.csrft = window.lct.csrfToken;
-      //
-      localStorage.setItem('ur', JSON.stringify(this.rol));
+      this.csrft = window.lct.ct;
+      this.id = window.lct.tok;
       //USER
-
+      axios
+      .get('user/'+this.id)
+      .then((res) => {
+        this.user = res.data;
+        localStorage.setItem('ur', JSON.stringify(this.user[0].rol));
+      });
       //MENU
       axios
       .get('menu/')

@@ -7,6 +7,7 @@ import Educacion from './views/Educacion';
 import Portafolio from './views/Portafolio';
 import Curriculum from './views/Curriculum';
 import Contacto from './views/Contacto';
+import AdminDemo from './views/AdminDemo';
 
 Vue.use(VueRouter);
 
@@ -72,6 +73,11 @@ const router = new VueRouter({
       path: '/gcc_site/contacto',
       name: 'contacto',
       component: Contacto
+    },
+    { 
+      path: '/gcc_site/admin_demo',
+      name: 'admin_demo',
+      component: AdminDemo
     },
     //ADMIN
     { 

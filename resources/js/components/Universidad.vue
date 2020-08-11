@@ -13,7 +13,7 @@
       </div>
     </div>
     <!--MODAL DEL SISTEMA-->
-      <v-dialog v-model="duni" width="90%" persistent dark>
+      <v-dialog v-model="duni" persistent dark>
         <v-card>
           <v-card-title class="headline">
             <span class="title_dia">{{infoSys[0].sistema}}</span>

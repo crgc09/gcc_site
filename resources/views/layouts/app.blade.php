@@ -27,7 +27,8 @@
   </body>
   <script>
     var lct = {
-      'csrfToken' : '{{csrf_token()}}'
+      'ct' : '{{csrf_token()}}',
+      'tok' : '{{Auth::user()->id}}'
     };
   </script>
 </html>

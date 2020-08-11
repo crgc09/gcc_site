@@ -15,6 +15,11 @@ class CatalogosController extends Controller
     $this->middleware('auth');
     $this->db_gcc = DB::connection('gcc');
   }
+  //USER
+  public function user($id){
+    $user = User::where('users.id',$id)->get();
+    return $user->toJson();
+  }
   //MENU
   public function menu(){
     $menu = $this->db_gcc->table('opciones')
@@ -52,12 +57,29 @@ class CatalogosController extends Controller
       ->get();
     return $todo->toJson();
   }
-  //ESCUELAS
-  public function escuelas(){
-    $esc = $this->db_gcc->table('escuelas')
+  //ACADEMICA
+  public function academica(){
+    $ac = $this->db_gcc->table('escuelas')
+      ->where('id_aprendizaje','=','1')
       ->orderBy('id_escuela', 'desc')
       ->get();
-    return $esc->toJson();
+    return $ac->toJson();
+  }
+  //IDIOMAS
+  public function idiomas(){
+    $len = $this->db_gcc->table('escuelas')
+      ->where('id_aprendizaje','=','2')
+      ->orderBy('id_escuela', 'desc')
+      ->get();
+    return $len->toJson();
+  }
+  //CERTIFICACIONES
+  public function certificaciones(){
+    $cer = $this->db_gcc->table('escuelas')
+      ->where('id_aprendizaje','=','3')
+      ->orderBy('id_escuela', 'desc')
+      ->get();
+    return $cer->toJson();
   }
   //LABORAL
   public function laboral(){

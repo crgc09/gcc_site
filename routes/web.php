@@ -16,12 +16,15 @@ Route::get('/portafolio', 'HomeController@index');
 Route::get('/curriculum', 'HomeController@index');
 Route::get('/contacto', 'HomeController@index');
 //
+Route::get('/user/{id}', 'CatalogosController@user');
 Route::get('/menu', 'CatalogosController@menu');
 Route::get('/opciones', 'CatalogosController@opciones');
 Route::get('/done', 'CatalogosController@done');
 Route::get('/doing', 'CatalogosController@doing');
 Route::get('/todo', 'CatalogosController@todo');
-Route::get('/escuelas', 'CatalogosController@escuelas');
+Route::get('/academica', 'CatalogosController@academica');
+Route::get('/certificaciones', 'CatalogosController@certificaciones');
+Route::get('/idiomas', 'CatalogosController@idiomas');
 Route::get('/laboral', 'CatalogosController@laboral');
 Route::get('/freelance', 'CatalogosController@freelance');
 Route::get('/universitario', 'CatalogosController@universitario');

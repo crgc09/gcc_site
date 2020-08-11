@@ -28,7 +28,7 @@
         </h2>
         <div class="login-ta">
           <p class="login-text login-msg mt-2">
-            Por favor usa las credenciales de <strong>user:</strong> <span class="login-online">invitado@invitado.com</span> y <strong>password:</strong> <span class="login-online">#ola1234</span> para poder acceder
+            Por favor usa las credenciales de <strong>user:</strong> <span class="login-online">invitado@gcc.com</span> y <strong>password:</strong> <span class="login-online">Invitado01</span> para poder acceder
           </p>
           <p class="login-text login-msg">
             Tambien puedes acceder con tu cuenta de Facebook si lo prefieres.
