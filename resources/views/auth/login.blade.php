@@ -65,9 +65,11 @@
               <button type="submit" class="btn btn btn-outline-light btn-sm btn-block login-text">
                 <i class="fas fa-sign-in-alt"></i> {{ __('Login') }} 
               </button>
-              <button type="button" class="btn btn btn-outline-light btn-sm btn-block login-text">
-                <i class="fab fa-facebook"></i> Login with Facebook 
-              </button>
+              <!--
+                <button type="button" class="btn btn btn-outline-light btn-sm btn-block login-text">
+                  <i class="fab fa-facebook"></i> Login with Facebook 
+                </button>
+              -->
             </div>
           </div>
         </form>

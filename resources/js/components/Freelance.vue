@@ -130,7 +130,7 @@
                           <div class="cont_dia">
                             <div class="info_dia">
                               <v-row class="mb-4" align="center">
-                                <span class="subtitle_dia">Modulo Muestra</span>
+                                <span class="subtitle_dia">Módulo Muestra</span>
                                 <v-spacer></v-spacer>
                               </v-row>
                               <div class="cinfo" v-html="infoSys[0].modulo_a"></div>

@@ -45,7 +45,7 @@
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <p>
-                  A continuación te presentamos los links de todos los sistemas que tu servidor ha desarrollado total o por modulos.
+                  A continuación te presentamos los links de todos los sistemas que tu servidor ha desarrollado total o por módulos.
                 </p>
                 <Desarrollo :ent-sys="desarrollo"/>
               </v-expansion-panel-content>

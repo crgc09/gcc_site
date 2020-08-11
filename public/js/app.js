@@ -23507,7 +23507,7 @@ var render = function() {
                                                       staticClass:
                                                         "subtitle_dia"
                                                     },
-                                                    [_vm._v("Modulo Muestra")]
+                                                    [_vm._v("Módulo Muestra")]
                                                   ),
                                                   _vm._v(" "),
                                                   _c("v-spacer")
@@ -24195,7 +24195,7 @@ var render = function() {
                                                       staticClass:
                                                         "subtitle_dia"
                                                     },
-                                                    [_vm._v("Modulo Muestra")]
+                                                    [_vm._v("Módulo Muestra")]
                                                   ),
                                                   _vm._v(" "),
                                                   _c("v-spacer")
@@ -27136,7 +27136,7 @@ var render = function() {
                           [
                             _c("p", [
                               _vm._v(
-                                "\n                A continuación te presentamos los links de todos los sistemas que tu servidor ha desarrollado total o por modulos.\n              "
+                                "\n                A continuación te presentamos los links de todos los sistemas que tu servidor ha desarrollado total o por módulos.\n              "
                               )
                             ]),
                             _vm._v(" "),
