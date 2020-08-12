@@ -42,7 +42,7 @@
       HexaGrid
     },
     data:()=>({
-      image: 'http://localhost/gcc_site/public/img/menu/me.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/me.png',
       title: 'Acerca de',
       intro: 'Muchas gracias por visitar el sitio, ya que es un poquito de lo que hago',
 

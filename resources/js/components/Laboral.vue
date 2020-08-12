@@ -79,7 +79,8 @@
                                 <h4 id="h4">Dirección</h4>
                                 <div class="cinfo" >
                                   <p>
-                                    <a id="link_dia" :href="infoSys[0].direccion">{{infoSys[0].direccion}}</a>
+                                    <a id="link_dia" class="link_dia_max" :href="infoSys[0].direccion">{{infoSys[0].direccion}}</a>
+                                    <a id="link_dia" class="link_dia_min" :href="infoSys[0].direccion">AQUÍ</a>
                                   </p>
                                 </div>
                                 <h4 id="h4">Descripción</h4>

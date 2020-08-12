@@ -102,9 +102,9 @@
       academica: [],
       certificaciones: [],
       idiomas: [],
-      image: 'http://localhost/gcc_site/public/img/menu/edu.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/edu.png',
       title: 'Educación',
-      intro: 'Te invito a conocer mi experiencia académica, así como un poco de lo que viví en cada una de las instituciones educativas de las que forme parte. Podrás encontrar un timeline desde la más reciente, hasta la educación primaria, que es de dónde empiezan mis memorias.' 
+      intro: 'Te invito a conocer mi experiencia académica, así como un poco de lo que viví en cada una de las instituciones educativas de las que formé parte. Podrás encontrar un timeline desde la más reciente, hasta la educación primaria, que es de dónde empiezan mis memorias.' 
     }),
     mounted(){
       //ACADEMICO

@@ -213,10 +213,14 @@
     grid-template-areas: "linkedin facebook twitter instagram oficial";
     /*grid-template-areas: "instagram twitter facebook linkedin";*/
   }
+
 }
 @media screen and (max-width: 576px) {
   .epc_sistemas{
     grid-template-columns: 1fr;
+  }
+  iframe{
+    width: 200px;
   }
 }
 

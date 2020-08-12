@@ -88,7 +88,7 @@
       HeaderCard
     },
     data:()=>({
-      image: 'http://localhost/gcc_site/public/img/menu/cont.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/cont.png',
       title: 'Contacto',
       msg: '<p>Muchas gracias por darte el tiempo necesario para visitar "El Sitio". Esto es una pequeña muestra de lo que sé y me gusta hacer. Espero  haya sido de tu agrado y ¿por qué no?, quizas algún día podamos trabajar en algún proyecto juntos.</p><p>En la siguiente sección puedes enviar un e-mail para darme tu opinión o para estar en contacto. Me gustaría saber de ti, y no dudes en darte una vuelta por mis redes sociales.</p><p>Por favor, llena los campos del formulario de manera correcta, ya que el campo de <strong>e-mail</strong> cuenta con una validación de formato, por lo que es necesaria una cuenta de correo electrónico; el campo de <strong>nombre</strong> sólo acepta letras mayúsculas, minúsculas, puntos, y espacios; y el campo de <strong>comentarios</strong> admite texto, así como algunos caracteres especiales.</p>',
       valid: true,

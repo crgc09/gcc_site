@@ -48,12 +48,13 @@
                         <img class="card_ip1" src="https://miespaciolaureate.mx/gcc_media/pages/acerca1.png" alt="">
                       </div>
                       <div class="card_im2">
-                        <a href="http://localhost/gcc_site/acerca_de">
+                        <h4 id="h4" class="text-center">Vista previa</h4>
+                        <a href="https://miespaciolaureate.mx/gcc_site/acerca_de">
                           <img class="card_ip2" src="https://miespaciolaureate.mx/gcc_media/pages/acerca2.png" alt="">  
                         </a>
                       </div>
                       <div class="card_dim">
-                        <strong>Acerca de</strong> es la página que te explica quién soy, de una forma más personal. Puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.
+                        <strong>Acerca de</strong> es la página que te explica quién soy de una forma más personal. Puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.
                       </div>
                     </div>
                   </v-card>
@@ -77,7 +78,8 @@
                         <img class="card_ip1" src="https://miespaciolaureate.mx/gcc_media/pages/educacion1.png" alt="">
                       </div>
                       <div class="card_im2">
-                        <a href="http://localhost/gcc_site/educacion">
+                        <h4 id="h4" class="text-center">Vista previa</h4>
+                        <a href="https://miespaciolaureate.mx/gcc_site/educacion">
                           <img class="card_ip2" src="https://miespaciolaureate.mx/gcc_media/pages/educacion2.png" alt="">
                         </a>
                       </div>
@@ -106,7 +108,8 @@
                         <img class="card_ip1" src="https://miespaciolaureate.mx/gcc_media/pages/portafolio1.png" alt="">
                       </div>
                       <div class="card_im2">
-                        <a href="http://localhost/gcc_site/portafolio">
+                        <h4 id="h4" class="text-center">Vista previa</h4>
+                        <a href="https://miespaciolaureate.mx/gcc_site/portafolio">
                           <img class="card_ip2" src="https://miespaciolaureate.mx/gcc_media/pages/portafolio2.png" alt="">
                         </a>
                       </div>
@@ -135,7 +138,8 @@
                         <img class="card_ip1" src="https://miespaciolaureate.mx/gcc_media/pages/curriculum1.png" alt="">
                       </div>
                       <div class="card_im2">
-                        <a href="http://localhost/gcc_site/curriculum">
+                        <h4 id="h4" class="text-center">Vista previa</h4>
+                        <a href="https://miespaciolaureate.mx/gcc_site/curriculum">
                           <img class="card_ip2" src="https://miespaciolaureate.mx/gcc_media/pages/curriculum2.png" alt="">
                         </a>
                       </div>
@@ -164,7 +168,8 @@
                         <img class="card_ip1" src="https://miespaciolaureate.mx/gcc_media/pages/contacto1.png" alt="">
                       </div>
                       <div class="card_im2">
-                        <a href="http://localhost/gcc_site/contacto">
+                        <h4 id="h4" class="text-center">Vista previa</h4>
+                        <a href="https://miespaciolaureate.mx/gcc_site/contacto">
                           <img class="card_ip2" src="https://miespaciolaureate.mx/gcc_media/pages/contacto2.png" alt="">
                         </a>
                       </div>
@@ -364,7 +369,7 @@
         }
       ],
       */
-      image: 'http://localhost/gcc_site/public/img/menu/home.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/home.png',
       title: 'Home',
       intro: 'Visit ten places on our planet that are undergoing the biggest changes today.',
       msg: '<p>¡Hey! ¿Qué tal? Mi nombre es <strong>Cris</strong> y quiero darte la bienvenido a "El Sitio".</p><p>Este sitio tiene como propósito ser un puente de comunicación con posibles colaboradores, como tú; mostrando un poco de lo que mejor conozco ¡A mí!; por lo que podrás navegar mientras me conoces tanto personal como profesionalmente.</p><p>Si te interesa o te gusta "El Sitio" por favor házmelo saber a través de los canales que te proporciono en las opciones de contacto, o por mis redes sociales que están en la parte inferior derecha.</p><p>Sin más preámbulos comencemos.</p>',

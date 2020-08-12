@@ -49,7 +49,7 @@
               <v-btn text small block dark onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 Cerrar sesión
               </v-btn>
-              <form id="logout-form" action="http://localhost/gcc_site/logout" method="POST" style="display: none;">
+              <form id="logout-form" action="https://miespaciolaureate.mx/gcc_site/logout" method="POST" style="display: none;">
                 <input type="hidden" name="_token" v-model="csrft">
               </form>
             </v-list-item>

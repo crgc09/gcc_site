@@ -82,6 +82,10 @@
   color: #fff;
 }
 
+.link_dia_min{
+  display: none;
+}
+
 .cinfo{
   color: #fff;
   font-size: 15px;
@@ -92,6 +96,7 @@
 @media screen and (max-width: 768px) {
   .cont_dia{
     display: grid;
+    grid-gap: 5px;
     grid-template-columns:1fr;
     grid-template-areas: "info_dia" "img_dia";
   }
@@ -105,5 +110,13 @@
     grid-template-columns:1fr;
     grid-template-areas: "infoup_dia" "infous_dia";
   }
+}
 
+@media screen and (max-width: 640px) {
+  .link_dia_max{
+    display: none;
+  }
+  .link_dia_min{
+    display: block;
+  }
 }

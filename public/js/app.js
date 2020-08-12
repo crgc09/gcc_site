@@ -2247,6 +2247,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Freelance',
   props: ['entSys'],
@@ -2368,6 +2369,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2706,6 +2708,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Universidad',
   props: ['entSys'],
@@ -2763,6 +2766,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2978,7 +2988,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      image: 'http://localhost/gcc_site/public/img/menu/me.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/me.png',
       title: 'Acerca de',
       intro: 'Muchas gracias por visitar el sitio, ya que es un poquito de lo que hago',
       //
@@ -3176,7 +3186,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      image: 'http://localhost/gcc_site/public/img/menu/cont.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/cont.png',
       title: 'Contacto',
       msg: '<p>Muchas gracias por darte el tiempo necesario para visitar "El Sitio". Esto es una pequeña muestra de lo que sé y me gusta hacer. Espero  haya sido de tu agrado y ¿por qué no?, quizas algún día podamos trabajar en algún proyecto juntos.</p><p>En la siguiente sección puedes enviar un e-mail para darme tu opinión o para estar en contacto. Me gustaría saber de ti, y no dudes en darte una vuelta por mis redes sociales.</p><p>Por favor, llena los campos del formulario de manera correcta, ya que el campo de <strong>e-mail</strong> cuenta con una validación de formato, por lo que es necesaria una cuenta de correo electrónico; el campo de <strong>nombre</strong> sólo acepta letras mayúsculas, minúsculas, puntos, y espacios; y el campo de <strong>comentarios</strong> admite texto, así como algunos caracteres especiales.</p>',
       valid: true,
@@ -3309,10 +3319,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      image: 'http://localhost/gcc_site/public/img/menu/cv.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/cv.png',
       title: 'Curriculum',
-      pdf: 'http://localhost/gcc_site/public/docs/cv_gcc.pdf#view=fit&toolbar=0&navpanes=0',
-      pdfd: 'http://localhost/gcc_site/public/docs/cv_gcc.pdf'
+      pdf: 'https://miespaciolaureate.mx/gcc_site/public/docs/cv_gcc.pdf#view=fit&toolbar=0&navpanes=0',
+      pdfd: 'https://miespaciolaureate.mx/gcc_site/public/docs/cv_gcc.pdf'
     };
   }
 });
@@ -3433,9 +3443,9 @@ __webpack_require__.r(__webpack_exports__);
       academica: [],
       certificaciones: [],
       idiomas: [],
-      image: 'http://localhost/gcc_site/public/img/menu/edu.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/edu.png',
       title: 'Educación',
-      intro: 'Te invito a conocer mi experiencia académica, así como un poco de lo que viví en cada una de las instituciones educativas de las que forme parte. Podrás encontrar un timeline desde la más reciente, hasta la educación primaria, que es de dónde empiezan mis memorias.'
+      intro: 'Te invito a conocer mi experiencia académica, así como un poco de lo que viví en cada una de las instituciones educativas de las que formé parte. Podrás encontrar un timeline desde la más reciente, hasta la educación primaria, que es de dónde empiezan mis memorias.'
     };
   },
   mounted: function mounted() {
@@ -3816,6 +3826,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3834,7 +3849,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       ],
       */
-      image: 'http://localhost/gcc_site/public/img/menu/home.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/home.png',
       title: 'Home',
       intro: 'Visit ten places on our planet that are undergoing the biggest changes today.',
       msg: '<p>¡Hey! ¿Qué tal? Mi nombre es <strong>Cris</strong> y quiero darte la bienvenido a "El Sitio".</p><p>Este sitio tiene como propósito ser un puente de comunicación con posibles colaboradores, como tú; mostrando un poco de lo que mejor conozco ¡A mí!; por lo que podrás navegar mientras me conoces tanto personal como profesionalmente.</p><p>Si te interesa o te gusta "El Sitio" por favor házmelo saber a través de los canales que te proporciono en las opciones de contacto, o por mis redes sociales que están en la parte inferior derecha.</p><p>Sin más preámbulos comencemos.</p>',
@@ -3943,7 +3958,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      image: 'http://localhost/gcc_site/public/img/menu/port.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/port.png',
       title: 'Portafolio',
       //CARGA
       laboral: [],
@@ -22624,7 +22639,8 @@ var render = function() {
                           staticStyle: { display: "none" },
                           attrs: {
                             id: "logout-form",
-                            action: "http://localhost/gcc_site/logout",
+                            action:
+                              "https://miespaciolaureate.mx/gcc_site/logout",
                             method: "POST"
                           }
                         },
@@ -23378,6 +23394,8 @@ var render = function() {
                                                         _c(
                                                           "a",
                                                           {
+                                                            staticClass:
+                                                              "link_dia_max",
                                                             attrs: {
                                                               id: "link_dia",
                                                               href:
@@ -23393,6 +23411,21 @@ var render = function() {
                                                               )
                                                             )
                                                           ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "a",
+                                                          {
+                                                            staticClass:
+                                                              "link_dia_min",
+                                                            attrs: {
+                                                              id: "link_dia",
+                                                              href:
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                            }
+                                                          },
+                                                          [_vm._v("AQUÍ")]
                                                         )
                                                       ])
                                                     ]
@@ -24054,6 +24087,8 @@ var render = function() {
                                                       _c(
                                                         "a",
                                                         {
+                                                          staticClass:
+                                                            "link_dia_max",
                                                           attrs: {
                                                             id: "link_dia",
                                                             href:
@@ -24069,6 +24104,21 @@ var render = function() {
                                                             )
                                                           )
                                                         ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "a",
+                                                        {
+                                                          staticClass:
+                                                            "link_dia_min",
+                                                          attrs: {
+                                                            id: "link_dia",
+                                                            href:
+                                                              _vm.infoSys[0]
+                                                                .direccion
+                                                          }
+                                                        },
+                                                        [_vm._v("AQUÍ")]
                                                       )
                                                     ])
                                                   ]
@@ -24789,6 +24839,8 @@ var render = function() {
                                                         _c(
                                                           "a",
                                                           {
+                                                            staticClass:
+                                                              "link_dia_max",
                                                             attrs: {
                                                               id: "link_dia",
                                                               href:
@@ -24804,6 +24856,21 @@ var render = function() {
                                                               )
                                                             )
                                                           ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "a",
+                                                          {
+                                                            staticClass:
+                                                              "link_dia_min",
+                                                            attrs: {
+                                                              id: "link_dia",
+                                                              href:
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                            }
+                                                          },
+                                                          [_vm._v("AQUÍ")]
                                                         )
                                                       ])
                                                     ]
@@ -25293,6 +25360,57 @@ var render = function() {
                                                 ),
                                                 _vm._v(" "),
                                                 _c("div", [
+                                                  _c(
+                                                    "h4",
+                                                    { attrs: { id: "h4" } },
+                                                    [_vm._v("Dirección")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    { staticClass: "cinfo" },
+                                                    [
+                                                      _c("p", [
+                                                        _c(
+                                                          "a",
+                                                          {
+                                                            staticClass:
+                                                              "link_dia_max",
+                                                            attrs: {
+                                                              id: "link_dia",
+                                                              href:
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                              )
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "a",
+                                                          {
+                                                            staticClass:
+                                                              "link_dia_min",
+                                                            attrs: {
+                                                              id: "link_dia",
+                                                              href:
+                                                                _vm.infoSys[0]
+                                                                  .direccion
+                                                            }
+                                                          },
+                                                          [_vm._v("AQUÍ")]
+                                                        )
+                                                      ])
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
                                                   _c(
                                                     "h4",
                                                     { attrs: { id: "h4" } },
@@ -26478,11 +26596,20 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_im2" }, [
                                     _c(
+                                      "h4",
+                                      {
+                                        staticClass: "text-center",
+                                        attrs: { id: "h4" }
+                                      },
+                                      [_vm._v("Vista previa")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
                                         attrs: {
                                           href:
-                                            "http://localhost/gcc_site/acerca_de"
+                                            "https://miespaciolaureate.mx/gcc_site/acerca_de"
                                         }
                                       },
                                       [
@@ -26501,7 +26628,7 @@ var render = function() {
                                   _c("div", { staticClass: "card_dim" }, [
                                     _c("strong", [_vm._v("Acerca de")]),
                                     _vm._v(
-                                      ' es la página que te explica quién soy, de una forma más personal. Puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.\n                    '
+                                      ' es la página que te explica quién soy de una forma más personal. Puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.\n                    '
                                     )
                                   ])
                                 ])
@@ -26593,11 +26720,20 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_im2" }, [
                                     _c(
+                                      "h4",
+                                      {
+                                        staticClass: "text-center",
+                                        attrs: { id: "h4" }
+                                      },
+                                      [_vm._v("Vista previa")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
                                         attrs: {
                                           href:
-                                            "http://localhost/gcc_site/educacion"
+                                            "https://miespaciolaureate.mx/gcc_site/educacion"
                                         }
                                       },
                                       [
@@ -26708,11 +26844,20 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_im2" }, [
                                     _c(
+                                      "h4",
+                                      {
+                                        staticClass: "text-center",
+                                        attrs: { id: "h4" }
+                                      },
+                                      [_vm._v("Vista previa")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
                                         attrs: {
                                           href:
-                                            "http://localhost/gcc_site/portafolio"
+                                            "https://miespaciolaureate.mx/gcc_site/portafolio"
                                         }
                                       },
                                       [
@@ -26823,11 +26968,20 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_im2" }, [
                                     _c(
+                                      "h4",
+                                      {
+                                        staticClass: "text-center",
+                                        attrs: { id: "h4" }
+                                      },
+                                      [_vm._v("Vista previa")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
                                         attrs: {
                                           href:
-                                            "http://localhost/gcc_site/curriculum"
+                                            "https://miespaciolaureate.mx/gcc_site/curriculum"
                                         }
                                       },
                                       [
@@ -26932,11 +27086,20 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_im2" }, [
                                     _c(
+                                      "h4",
+                                      {
+                                        staticClass: "text-center",
+                                        attrs: { id: "h4" }
+                                      },
+                                      [_vm._v("Vista previa")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
                                         attrs: {
                                           href:
-                                            "http://localhost/gcc_site/contacto"
+                                            "https://miespaciolaureate.mx/gcc_site/contacto"
                                         }
                                       },
                                       [
@@ -27082,7 +27245,7 @@ var render = function() {
                           [
                             _c("p", [
                               _vm._v(
-                                "\n                A continuación se muestran los proyectos desarrollados para las empresas donde su servidor ha trabajado. Con una descripción tanto del proposito de estos, como de la tecnología que se empleo para su desarrollo. \n              "
+                                "\n                A continuación se muestran los proyectos desarrollados para las empresas donde he trabajado, con una descripción tanto del propósito de estos, como de la tecnología que se empleo para su desarrollo. \n              "
                               )
                             ]),
                             _vm._v(" "),
@@ -27108,7 +27271,7 @@ var render = function() {
                           [
                             _c("p", [
                               _vm._v(
-                                "\n                En esta sección se mostrarán los proyectos freelances en lo que su servidor tuvo participacion parcial o total. Junto con una breve descripción del proposito de estos; Así como tecnología en la que esta desarrollado.\n              "
+                                "\n                En esta sección se muestran los proyectos freelance en los que tuve algún tipo de  participación, ya sea parcial o total. Junto con una breve descripción del propósito de estos; así como la tecnología en la que está desarrollado.\n              "
                               )
                             ]),
                             _vm._v(" "),
@@ -27136,7 +27299,7 @@ var render = function() {
                           [
                             _c("p", [
                               _vm._v(
-                                "\n                Aquí podrás visualizar los proyectos que su servidor desarrolló en su etapa universitaria y la tecnología en la que esta desarrollado.\n              "
+                                "\n                Aquí podrás visualizar los proyectos que desarrollé en mi etapa universitaria, así como la tecnología en la que están desarrollados.\n              "
                               )
                             ]),
                             _vm._v(" "),
@@ -27164,7 +27327,7 @@ var render = function() {
                           [
                             _c("p", [
                               _vm._v(
-                                "\n                A continuación te presentamos los links de todos los sistemas que tu servidor ha desarrollado total o por módulos.\n              "
+                                "\n                A continuación te presento los proyectos y experimentos que me encuentro desarrollando.\n              "
                               )
                             ]),
                             _vm._v(" "),

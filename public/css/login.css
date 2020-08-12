@@ -66,3 +66,15 @@ button:focus {
   background: transparent;
   color: #fff; 
 }
+
+@media screen and (max-width: 768px) {
+  #appLogin{
+    justify-items: center;
+  }
+  #login{
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}

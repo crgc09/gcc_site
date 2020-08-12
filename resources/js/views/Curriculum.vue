@@ -23,10 +23,10 @@
       HeaderCard
     },
     data:()=>({
-      image: 'http://localhost/gcc_site/public/img/menu/cv.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/cv.png',
       title: 'Curriculum',
-      pdf: 'http://localhost/gcc_site/public/docs/cv_gcc.pdf#view=fit&toolbar=0&navpanes=0',
-      pdfd: 'http://localhost/gcc_site/public/docs/cv_gcc.pdf'
+      pdf: 'https://miespaciolaureate.mx/gcc_site/public/docs/cv_gcc.pdf#view=fit&toolbar=0&navpanes=0',
+      pdfd: 'https://miespaciolaureate.mx/gcc_site/public/docs/cv_gcc.pdf'
     }),
   }
 </script>

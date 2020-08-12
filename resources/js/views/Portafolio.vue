@@ -12,7 +12,7 @@
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <p>
-                  A continuación se muestran los proyectos desarrollados para las empresas donde su servidor ha trabajado. Con una descripción tanto del proposito de estos, como de la tecnología que se empleo para su desarrollo. 
+                  A continuación se muestran los proyectos desarrollados para las empresas donde he trabajado, con una descripción tanto del propósito de estos, como de la tecnología que se empleo para su desarrollo. 
                 </p>
                 <Laboral :ent-sys="laboral"/>
               </v-expansion-panel-content>
@@ -23,7 +23,7 @@
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <p>
-                  En esta sección se mostrarán los proyectos freelances en lo que su servidor tuvo participacion parcial o total. Junto con una breve descripción del proposito de estos; Así como tecnología en la que esta desarrollado.
+                  En esta sección se muestran los proyectos freelance en los que tuve algún tipo de  participación, ya sea parcial o total. Junto con una breve descripción del propósito de estos; así como la tecnología en la que está desarrollado.
                 </p>
                 <Freelance :ent-sys="freelance"/>
               </v-expansion-panel-content>
@@ -34,7 +34,7 @@
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <p>
-                  Aquí podrás visualizar los proyectos que su servidor desarrolló en su etapa universitaria y la tecnología en la que esta desarrollado.
+                  Aquí podrás visualizar los proyectos que desarrollé en mi etapa universitaria, así como la tecnología en la que están desarrollados.
                 </p>
                 <Universidad :ent-sys="universidad"/>
               </v-expansion-panel-content>
@@ -45,7 +45,7 @@
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <p>
-                  A continuación te presentamos los links de todos los sistemas que tu servidor ha desarrollado total o por módulos.
+                  A continuación te presento los proyectos y experimentos que me encuentro desarrollando.
                 </p>
                 <Desarrollo :ent-sys="desarrollo"/>
               </v-expansion-panel-content>
@@ -71,7 +71,7 @@
       Desarrollo
     },
     data:()=>({
-      image: 'http://localhost/gcc_site/public/img/menu/port.png',
+      image: 'https://miespaciolaureate.mx/gcc_site/public/img/menu/port.png',
       title: 'Portafolio',
       //CARGA
       laboral: [],
