@@ -2045,6 +2045,13 @@ __webpack_require__.r(__webpack_exports__);
         emai: '',
         rol: ''
       }],
+      redes: [{
+        github: '',
+        facebook: '',
+        twitter: '',
+        instagram: '',
+        linkedin: ''
+      }],
       menu: [],
       profile: false,
       drawer: null,
@@ -2066,6 +2073,10 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('menu/').then(function (res) {
       _this.menu = res.data;
+    }); //REDES
+
+    axios.get('redes/').then(function (res) {
+      _this.redes = res.data;
     });
   }
 });
@@ -2956,6 +2967,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2969,11 +2982,11 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Acerca de',
       intro: 'Muchas gracias por visitar el sitio, ya que es un poquito de lo que hago',
       //
-      title1: 'Top teen de logros',
+      title1: 'Logros',
       done: [],
-      title2: '¿Que me gusta?',
+      title2: '¿Qué me gusta?',
       doing: [],
-      title3: '¿Que me gustaria hacer?',
+      title3: '¿Qué me gustaría hacer?',
       todo: []
     };
   },
@@ -3165,7 +3178,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       image: 'http://localhost/gcc_site/public/img/menu/cont.png',
       title: 'Contacto',
-      msg: '<p>Muchas gracias por darte el tiempo necesario para visitar el sitio. Esto es una pequeña muestra de lo que me gusta hacer, espero te haya sido de tu agrado y ¿Por qué no?, quizas algún día podamos trabajar en un proyecto.</p><p>En la siguiente sección puedes enviarme un email para darme tu opinión o para estar en contacto. Me gustaría saber de ti, y no dudes en darte una vuelta en mis redes sociales.</p><p>Por favor llena los campos del formulario de manera correcta, ya que el campo de <strong>email</strong> tiene una validación de formato de una cuenta de correo electrónico, el campo de <strong>nombre</strong> solo letras mayúsculas, minúsculas, puntos, y espacios y el campos de <strong>comentarios</strong> admite texto algunos caracteres especiales ()</p>',
+      msg: '<p>Muchas gracias por darte el tiempo necesario para visitar "El Sitio". Esto es una pequeña muestra de lo que sé y me gusta hacer. Espero  haya sido de tu agrado y ¿por qué no?, quizas algún día podamos trabajar en algún proyecto juntos.</p><p>En la siguiente sección puedes enviar un e-mail para darme tu opinión o para estar en contacto. Me gustaría saber de ti, y no dudes en darte una vuelta por mis redes sociales.</p><p>Por favor, llena los campos del formulario de manera correcta, ya que el campo de <strong>e-mail</strong> cuenta con una validación de formato, por lo que es necesaria una cuenta de correo electrónico; el campo de <strong>nombre</strong> sólo acepta letras mayúsculas, minúsculas, puntos, y espacios; y el campo de <strong>comentarios</strong> admite texto, así como algunos caracteres especiales.</p>',
       valid: true,
       loading: false,
       notice: false,
@@ -3422,7 +3435,7 @@ __webpack_require__.r(__webpack_exports__);
       idiomas: [],
       image: 'http://localhost/gcc_site/public/img/menu/edu.png',
       title: 'Educación',
-      intro: 'Ahora una breve reseña tanto personal como académica, en cada una de las instituciones educativas a las que perteneci. Desde la más reciente hasta la educación primaria que es la primaria de la que tengo memoria.'
+      intro: 'Te invito a conocer mi experiencia académica, así como un poco de lo que viví en cada una de las instituciones educativas de las que forme parte. Podrás encontrar un timeline desde la más reciente, hasta la educación primaria, que es de dónde empiezan mis memorias.'
     };
   },
   mounted: function mounted() {
@@ -3802,6 +3815,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3823,7 +3837,7 @@ __webpack_require__.r(__webpack_exports__);
       image: 'http://localhost/gcc_site/public/img/menu/home.png',
       title: 'Home',
       intro: 'Visit ten places on our planet that are undergoing the biggest changes today.',
-      msg: '<p>¡Hey que tal!. Mi nombre es <strong>Cris</strong> y dejame darte la bienvenido a mi sitio web.</p><p>Este sitio tiene como proposito ser un puente de comunicación con posibles colaboradores, mostrando un poco de mi tanto personal como profesionalmente, mediantes las siguientes opciones que se serán descritas a continuación.</p><p>Si te interesó o te gustó el sitio por favor házmelo saber a través de los canales que proporcionaré a continuación o por mis redes sociales, que estan en la parte inferior derecha.</p><p>Sin más preámbulos comenzamos.</p>',
+      msg: '<p>¡Hey! ¿Qué tal? Mi nombre es <strong>Cris</strong> y quiero darte la bienvenido a "El Sitio".</p><p>Este sitio tiene como propósito ser un puente de comunicación con posibles colaboradores, como tú; mostrando un poco de lo que mejor conozco ¡A mí!; por lo que podrás navegar mientras me conoces tanto personal como profesionalmente.</p><p>Si te interesa o te gusta "El Sitio" por favor házmelo saber a través de los canales que te proporciono en las opciones de contacto, o por mis redes sociales que están en la parte inferior derecha.</p><p>Sin más preámbulos comencemos.</p>',
       control: 1
     };
   }
@@ -22727,7 +22741,7 @@ var render = function() {
             "v-btn",
             {
               attrs: {
-                href: "#",
+                href: _vm.redes[0]["instagram"],
                 fab: "",
                 dark: "",
                 small: "",
@@ -22743,7 +22757,7 @@ var render = function() {
             "v-btn",
             {
               attrs: {
-                href: "#",
+                href: _vm.redes[0]["twitter"],
                 fab: "",
                 dark: "",
                 small: "",
@@ -22759,7 +22773,7 @@ var render = function() {
             "v-btn",
             {
               attrs: {
-                href: "#",
+                href: _vm.redes[0]["facebook"],
                 fab: "",
                 dark: "",
                 small: "",
@@ -22775,7 +22789,7 @@ var render = function() {
             "v-btn",
             {
               attrs: {
-                href: "#",
+                href: _vm.redes[0]["linkedin"],
                 fab: "",
                 dark: "",
                 small: "",
@@ -22791,7 +22805,7 @@ var render = function() {
             "v-btn",
             {
               attrs: {
-                href: "https://www.google.com/",
+                href: _vm.redes[0]["github"],
                 target: "_blank",
                 fab: "",
                 dark: "",
@@ -25402,30 +25416,34 @@ var render = function() {
                   { staticClass: "card_datos" },
                   [
                     _c("h3", { attrs: { id: "h3" } }, [
-                      _c("strong", [_vm._v("Un poco de mi")])
+                      _c("strong", [_vm._v("Un poco de mí")])
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "mt-4" }, [
                       _vm._v("\n              Mi nombre es "),
                       _c("strong", [_vm._v("Cristóbal")]),
                       _vm._v(
-                        ", nací el 26 de julio de 1990 en la Ciudad de México, ciudad donde he vivido toda mi vida.\n            "
+                        ". Nací un 26 de Julio en nuestro antigüo Distrito Federal (sí, aquí se delata mi edad). Soy Chilango de corazón y desarrollador de profesión. \n            "
                       )
                     ]),
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "\n              Me considero una persona bastante racional, a la cual no le da miedo decir lo que piensa, ya que siempre he creido que "
+                        "\n              Me encanta viajar, bailar y soy amante de las emociones fuertes.\n              Soy una persona creativa, pero a la vez racional; soñadora pero también calculadora y siempre honesto, directo y leal a mis creencias y convicciones. Soy perseverante, con ambición, humildad, pero sobre todo con ganas de disfrutar de las cosas que he logrado y por las que he trabajado.\n            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "\n              Me gustan las personas congruentes, leales y sarcásticas "
                       ),
-                      _c("b", [_vm._v("Al toro siempre por los cuernos")]),
+                      _c("i", [
+                        _vm._v(
+                          "(Por que hasta para eso hay que ser inteligente)"
+                        )
+                      ]),
                       _vm._v(
-                        ", soy perseverante y me gusta saber que lo que tengo y lo qu he logrado ha sido por mi esfuerzo.\n            "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "\n              Me gustan las personas que son congruentes, leales y sarcásticas (Por que hasta para eso hay que ser inteligente). Creo en la amistad y soy fiel creyente de que las personas que se cruzan por nuestro camino ya sea por un tiempo o toda la vida son las personas corractas, ya que tiene algo que enseñarnos. \n            "
+                        ".\n              Creo en la amistad y en el trabajo en equipo; y aunque reconozco que tiendo a ser un hombre puntual y perfeccionista, sé que con comunicación nos podemos entender y las cosas siempre pueden funcionar.\n            "
                       )
                     ]),
                     _vm._v(" "),
@@ -26073,7 +26091,7 @@ var render = function() {
               _c("div", { staticClass: "mb-2" }, [
                 _c("h3", [
                   _c("span", { staticClass: "title_tlf" }, [
-                    _vm._v("Formación Academica")
+                    _vm._v("Formación Académica")
                   ])
                 ])
               ]),
@@ -26346,6 +26364,15 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_im2" }, [
+                                    _c(
+                                      "h4",
+                                      {
+                                        staticClass: "text-center",
+                                        attrs: { id: "h4" }
+                                      },
+                                      [_vm._v("Vista previa")]
+                                    ),
+                                    _vm._v(" "),
                                     _c("img", {
                                       staticClass: "card_ip2",
                                       attrs: {
@@ -26357,8 +26384,9 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_dim" }, [
+                                    _c("strong", [_vm._v("Home")]),
                                     _vm._v(
-                                      '\n                      Esta es la página de bienvenida y puedes acceder a ella a través del botón "Home" ubicado en la primera posición del menú.\n                    '
+                                      ' es la página de bienvenida donde podrás tener una vista general de "El Sitio". Si en algún momento deseas regresar, puedes acceder a ella mediante el botón "Home" ubicado en la primera posición del menú.\n                    '
                                     )
                                   ])
                                 ])
@@ -26471,9 +26499,9 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_dim" }, [
-                                    _c("strong", [_vm._v("Acerca de:")]),
+                                    _c("strong", [_vm._v("Acerca de")]),
                                     _vm._v(
-                                      ' es la página que te explica quién es tu servidor, de una forma más personal. Y puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.\n                    '
+                                      ' es la página que te explica quién soy, de una forma más personal. Puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.\n                    '
                                     )
                                   ])
                                 ])
@@ -26586,9 +26614,9 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_dim" }, [
-                                    _c("strong", [_vm._v("Educacción:")]),
+                                    _c("strong", [_vm._v("Educación")]),
                                     _vm._v(
-                                      ' es la página donde se proporciona el historial académico, junto con la información de las instituciones que se van mencionando. Puedes acceder a ella a través del botón "Educación" ubicado en la tercera posición del menú.\n                    '
+                                      ' es la página donde se proporciona mí historia académica, junto con la información de dichas instituciones. Puedes acceder a ella a través del botón "Educación" ubicado en la tercera posición del menú.\n                    '
                                     )
                                   ])
                                 ])
@@ -26701,9 +26729,9 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_dim" }, [
-                                    _c("strong", [_vm._v("Portafolio:")]),
+                                    _c("strong", [_vm._v("Portafolio")]),
                                     _vm._v(
-                                      ' es la compilación de todos los proyectos donde tu servidor ha tenido participación, ya sea total o parcial, junto con sus objetivos y descripción de la tecnología con la que esta desarrollado. Puedes acceder a ella a través del botón "Portafolio" ubicado en la cuarta posición del menú.\n                    '
+                                      ' es la compilación de todos los proyectos donde he participado, ya sea total o parcial; junto con sus objetivos y descripción de la tecnología con la que estan desarrollados. Puedes acceder a ella a través del botón "Portafolio" ubicado en la cuarta posición del menú.\n                    '
                                     )
                                   ])
                                 ])
@@ -26816,9 +26844,9 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_dim" }, [
-                                    _c("strong", [_vm._v("Curriculum:")]),
+                                    _c("strong", [_vm._v("Curriculum")]),
                                     _vm._v(
-                                      ' es la presentación del curriculum vitae de tu servidor en formato pdf. Puedes acceder a ella a través del botón "Curriculum" ubicado en la quinta posición del menú.\n                    '
+                                      ' es la presentación de mi Curriculum Vitae en formato PDF. Puedes acceder a ella a través del botón "Curriculum" ubicado en la quinta posición del menú.\n                    '
                                     )
                                   ])
                                 ])
@@ -26925,9 +26953,9 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "card_dim" }, [
-                                    _c("strong", [_vm._v("Contacto:")]),
+                                    _c("strong", [_vm._v("Contacto")]),
                                     _vm._v(
-                                      ' es un breve formulario de contacto, con el que tu servidor reciboe un email de tu parte, ya sea para mantener contacto, para propuestas freelance o laborales. Puedes acceder a ella a través del botón "Contacto" ubicado en la sexta posición del menú.\n                    '
+                                      ' es un breve formulario con el que recibiré un email de tu parte; ya sea para mantener contacto, para propuestas freelance o laborales. Puedes acceder a ella a través del botón "Contacto" ubicado en la sexta posición del menú.\n                    '
                                     )
                                   ])
                                 ])

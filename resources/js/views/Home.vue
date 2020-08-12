@@ -20,10 +20,11 @@
                         <img class="card_ip1" src="https://miespaciolaureate.mx/gcc_media/pages/home1.png" alt="">
                       </div>
                       <div class="card_im2">
+                        <h4 id="h4" class="text-center">Vista previa</h4>
                         <img class="card_ip2" src="https://miespaciolaureate.mx/gcc_media/pages/home2.png" alt="">
                       </div>
                       <div class="card_dim">
-                        Esta es la página de bienvenida y puedes acceder a ella a través del botón "Home" ubicado en la primera posición del menú.
+                        <strong>Home</strong> es la página de bienvenida donde podrás tener una vista general de "El Sitio". Si en algún momento deseas regresar, puedes acceder a ella mediante el botón "Home" ubicado en la primera posición del menú.
                       </div>
                     </div>
                   </v-card>
@@ -52,7 +53,7 @@
                         </a>
                       </div>
                       <div class="card_dim">
-                        <strong>Acerca de:</strong> es la página que te explica quién es tu servidor, de una forma más personal. Y puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.
+                        <strong>Acerca de</strong> es la página que te explica quién soy, de una forma más personal. Puedes acceder a ella a través del botón "Acerca de" ubicado en la segunda posición del menú.
                       </div>
                     </div>
                   </v-card>
@@ -81,7 +82,7 @@
                         </a>
                       </div>
                       <div class="card_dim">
-                        <strong>Educacción:</strong> es la página donde se proporciona el historial académico, junto con la información de las instituciones que se van mencionando. Puedes acceder a ella a través del botón "Educación" ubicado en la tercera posición del menú.
+                        <strong>Educación</strong> es la página donde se proporciona mí historia académica, junto con la información de dichas instituciones. Puedes acceder a ella a través del botón "Educación" ubicado en la tercera posición del menú.
                       </div>
                     </div>
                   </v-card>
@@ -110,7 +111,7 @@
                         </a>
                       </div>
                       <div class="card_dim">
-                        <strong>Portafolio:</strong> es la compilación de todos los proyectos donde tu servidor ha tenido participación, ya sea total o parcial, junto con sus objetivos y descripción de la tecnología con la que esta desarrollado. Puedes acceder a ella a través del botón "Portafolio" ubicado en la cuarta posición del menú.
+                        <strong>Portafolio</strong> es la compilación de todos los proyectos donde he participado, ya sea total o parcial; junto con sus objetivos y descripción de la tecnología con la que estan desarrollados. Puedes acceder a ella a través del botón "Portafolio" ubicado en la cuarta posición del menú.
                       </div>
                     </div>
                   </v-card>
@@ -139,7 +140,7 @@
                         </a>
                       </div>
                       <div class="card_dim">
-                        <strong>Curriculum:</strong> es la presentación del curriculum vitae de tu servidor en formato pdf. Puedes acceder a ella a través del botón "Curriculum" ubicado en la quinta posición del menú.
+                        <strong>Curriculum</strong> es la presentación de mi Curriculum Vitae en formato PDF. Puedes acceder a ella a través del botón "Curriculum" ubicado en la quinta posición del menú.
                       </div>
                     </div>
                   </v-card>
@@ -168,7 +169,7 @@
                         </a>
                       </div>
                       <div class="card_dim">
-                        <strong>Contacto:</strong> es un breve formulario de contacto, con el que tu servidor reciboe un email de tu parte, ya sea para mantener contacto, para propuestas freelance o laborales. Puedes acceder a ella a través del botón "Contacto" ubicado en la sexta posición del menú.
+                        <strong>Contacto</strong> es un breve formulario con el que recibiré un email de tu parte; ya sea para mantener contacto, para propuestas freelance o laborales. Puedes acceder a ella a través del botón "Contacto" ubicado en la sexta posición del menú.
                       </div>
                     </div>
                   </v-card>
@@ -366,7 +367,7 @@
       image: 'http://localhost/gcc_site/public/img/menu/home.png',
       title: 'Home',
       intro: 'Visit ten places on our planet that are undergoing the biggest changes today.',
-      msg: '<p>¡Hey que tal!. Mi nombre es <strong>Cris</strong> y dejame darte la bienvenido a mi sitio web.</p><p>Este sitio tiene como proposito ser un puente de comunicación con posibles colaboradores, mostrando un poco de mi tanto personal como profesionalmente, mediantes las siguientes opciones que se serán descritas a continuación.</p><p>Si te interesó o te gustó el sitio por favor házmelo saber a través de los canales que proporcionaré a continuación o por mis redes sociales, que estan en la parte inferior derecha.</p><p>Sin más preámbulos comenzamos.</p>',
+      msg: '<p>¡Hey! ¿Qué tal? Mi nombre es <strong>Cris</strong> y quiero darte la bienvenido a "El Sitio".</p><p>Este sitio tiene como propósito ser un puente de comunicación con posibles colaboradores, como tú; mostrando un poco de lo que mejor conozco ¡A mí!; por lo que podrás navegar mientras me conoces tanto personal como profesionalmente.</p><p>Si te interesa o te gusta "El Sitio" por favor házmelo saber a través de los canales que te proporciono en las opciones de contacto, o por mis redes sociales que están en la parte inferior derecha.</p><p>Sin más preámbulos comencemos.</p>',
       control: 1,
     }),
     /*

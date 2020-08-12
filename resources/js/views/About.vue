@@ -8,16 +8,18 @@
           <div class="card_me">
             <div class="card_datos">
               <h3 id="h3">
-                <strong>Un poco de mi</strong>
+                <strong>Un poco de mí</strong>
               </h3>
               <p class="mt-4">
-                Mi nombre es <strong>Cristóbal</strong>, nací el 26 de julio de 1990 en la Ciudad de México, ciudad donde he vivido toda mi vida.
+                Mi nombre es <strong>Cristóbal</strong>. Nací un 26 de Julio en nuestro antigüo Distrito Federal (sí, aquí se delata mi edad). Soy Chilango de corazón y desarrollador de profesión. 
               </p>
               <p>
-                Me considero una persona bastante racional, a la cual no le da miedo decir lo que piensa, ya que siempre he creido que <b>Al toro siempre por los cuernos</b>, soy perseverante y me gusta saber que lo que tengo y lo qu he logrado ha sido por mi esfuerzo.
+                Me encanta viajar, bailar y soy amante de las emociones fuertes.
+                Soy una persona creativa, pero a la vez racional; soñadora pero también calculadora y siempre honesto, directo y leal a mis creencias y convicciones. Soy perseverante, con ambición, humildad, pero sobre todo con ganas de disfrutar de las cosas que he logrado y por las que he trabajado.
               </p>
               <p>
-                Me gustan las personas que son congruentes, leales y sarcásticas (Por que hasta para eso hay que ser inteligente). Creo en la amistad y soy fiel creyente de que las personas que se cruzan por nuestro camino ya sea por un tiempo o toda la vida son las personas corractas, ya que tiene algo que enseñarnos. 
+                Me gustan las personas congruentes, leales y sarcásticas <i>(Por que hasta para eso hay que ser inteligente)</i>.
+                Creo en la amistad y en el trabajo en equipo; y aunque reconozco que tiendo a ser un hombre puntual y perfeccionista, sé que con comunicación nos podemos entender y las cosas siempre pueden funcionar.
               </p>
               <HexaGrid :list-comp="done" :title-comp="title1"/>
             </div>
@@ -45,11 +47,11 @@
       intro: 'Muchas gracias por visitar el sitio, ya que es un poquito de lo que hago',
 
       //
-      title1: 'Top teen de logros',
+      title1: 'Logros',
       done: [],
-      title2: '¿Que me gusta?',
+      title2: '¿Qué me gusta?',
       doing: [],
-      title3: '¿Que me gustaria hacer?',
+      title3: '¿Qué me gustaría hacer?',
       todo: []
     }),
     mounted(){

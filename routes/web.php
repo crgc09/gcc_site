@@ -17,6 +17,7 @@ Route::get('/curriculum', 'HomeController@index');
 Route::get('/contacto', 'HomeController@index');
 //
 Route::get('/user/{id}', 'CatalogosController@user');
+Route::get('/redes','CatalogosController@redes');
 Route::get('/menu', 'CatalogosController@menu');
 Route::get('/opciones', 'CatalogosController@opciones');
 Route::get('/done', 'CatalogosController@done');

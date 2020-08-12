@@ -84,19 +84,19 @@
             <v-icon v-else>mdi-chat-processing</v-icon>
           </v-btn>
         </template>
-        <v-btn href="#" fab dark small outlined color="#923bba">
+        <v-btn :href="redes[0]['instagram']" fab dark small outlined color="#923bba">
           <v-icon>mdi-instagram</v-icon>
         </v-btn>
-        <v-btn href="#" fab dark small outlined color="#1da1f2">
+        <v-btn :href="redes[0]['twitter']" fab dark small outlined color="#1da1f2">
           <v-icon>mdi-twitter</v-icon>
         </v-btn>
-        <v-btn href="#" fab dark small outlined color="#097eeb">
+        <v-btn :href="redes[0]['facebook']" fab dark small outlined color="#097eeb">
           <v-icon>mdi-facebook</v-icon>
         </v-btn>
-        <v-btn href="#" fab dark small outlined color="#0073b0">
+        <v-btn :href="redes[0]['linkedin']" fab dark small outlined color="#0073b0">
           <v-icon>mdi-linkedin</v-icon>
         </v-btn>
-        <v-btn href="https://www.google.com/" target="_blank" fab dark small outlined color="#24292e">
+        <v-btn :href="redes[0]['github']" target="_blank" fab dark small outlined color="#24292e">
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </v-speed-dial>   
@@ -110,20 +110,20 @@
         </v-col> 
       </v-footer>
     <!--DIALOG-->
-    <v-dialog v-model="profile" persistent dark max-width="320">
-      <v-card>
-        <v-card-title class="headline">
-          <span class="title_dia">Perfil</span>
-        </v-card-title>
-        <v-card-text id="pd">
-          <p>Nombre: <strong>{{user[0]['name']}} {{user[0]['last_name']}}</strong></p>
-          <p>Email: <strong>{{user[0]['email']}}</strong></p>
-        </v-card-text>
-        <v-card-actions id="card_buttons">
-          <v-btn color="#eeb213" text @click="profile = false">Aceptar</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+      <v-dialog v-model="profile" persistent dark max-width="320">
+        <v-card>
+          <v-card-title class="headline">
+            <span class="title_dia">Perfil</span>
+          </v-card-title>
+          <v-card-text id="pd">
+            <p>Nombre: <strong>{{user[0]['name']}} {{user[0]['last_name']}}</strong></p>
+            <p>Email: <strong>{{user[0]['email']}}</strong></p>
+          </v-card-text>
+          <v-card-actions id="card_buttons">
+            <v-btn color="#eeb213" text @click="profile = false">Aceptar</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
   </v-app>
 </template>
 <script>
@@ -135,6 +135,15 @@
           last_name:'',
           emai:'',
           rol:''
+        }
+      ],
+      redes: [
+        {
+          github: '',
+          facebook: '',
+          twitter: '',
+          instagram: '',
+          linkedin: ''
         }
       ],
       menu: [],
@@ -159,6 +168,12 @@
       .get('menu/')
       .then((res) => {
         this.menu = res.data;
+      });
+      //REDES
+      axios
+      .get('redes/')
+      .then((res) => {
+        this.redes = res.data;
       });
     }
   }

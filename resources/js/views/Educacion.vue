@@ -50,7 +50,7 @@
 
         <div class="mb-2">
           <h3>
-            <span class="title_tlf">Formación Academica</span>
+            <span class="title_tlf">Formación Académica</span>
           </h3>
         </div>
         <v-timeline :dense="$vuetify.breakpoint.smAndDown">
@@ -104,7 +104,7 @@
       idiomas: [],
       image: 'http://localhost/gcc_site/public/img/menu/edu.png',
       title: 'Educación',
-      intro: 'Ahora una breve reseña tanto personal como académica, en cada una de las instituciones educativas a las que perteneci. Desde la más reciente hasta la educación primaria que es la primaria de la que tengo memoria.',
+      intro: 'Te invito a conocer mi experiencia académica, así como un poco de lo que viví en cada una de las instituciones educativas de las que forme parte. Podrás encontrar un timeline desde la más reciente, hasta la educación primaria, que es de dónde empiezan mis memorias.' 
     }),
     mounted(){
       //ACADEMICO

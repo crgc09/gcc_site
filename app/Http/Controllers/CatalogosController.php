@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use App\User;
+use App\Network;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,13 @@ class CatalogosController extends Controller
       ->select('id_opcion','opcion','url')
       ->get();
     return $menu->toJson();
+  }
+  //REDES
+  public function redes(){
+    $sn = Network::where('users_id',1)
+      ->select('github', 'facebook', 'twitter', 'instagram', 'linkedin')
+      ->get();
+    return $sn->toJson();
   }
   //OPCIONES
   public function opciones(){

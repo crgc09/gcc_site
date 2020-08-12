@@ -28,11 +28,16 @@
         </h2>
         <div class="login-ta">
           <p class="login-text login-msg mt-2">
-            Por favor usa las credenciales de <strong>user:</strong> <span class="login-online">invitado@gcc.com</span> y <strong>password:</strong> <span class="login-online">Invitado01</span> para poder acceder
+            ¡Hola! Para entrar al sitio ingresa con las siguientes credenciales:
+            <br>
+            <strong>Usuario</strong> <span class="login-online">invitado@gcc.com</span><strong>
+            <br>Contraseña</strong> <span class="login-online">Invitado01</span>
           </p>
-          <p class="login-text login-msg">
-            Tambien puedes acceder con tu cuenta de Facebook si lo prefieres.
-          </p>  
+          <!--
+            <p class="login-text login-msg">
+              Tambien puedes acceder con tu cuenta de Facebook si lo prefieres.
+            </p>
+          --> 
         </div>
         <form method="POST" action="{{ route('login') }}">
           @csrf
